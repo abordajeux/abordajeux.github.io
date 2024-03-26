@@ -1,6 +1,14 @@
 <script setup>
 import ContactForm from "@/components/contact/ContactForm.vue";
 let messageSentFlag = false;
+/**
+ * Further development
+ *  add tool for contact
+ *  css on contact form
+ *  option : post to a google script which makes the necessary steps, then send message
+ *  seems nices
+ *  success
+ */
 </script>
 <template>
   <div class="title">Engagez vous qu'ils disaient</div>
