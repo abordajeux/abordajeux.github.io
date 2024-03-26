@@ -1,4 +1,15 @@
-<script setup></script>
+<script setup>
+/**
+ * Future developement
+ *  call to a google api script which will fetch the events
+ *  it will fetch the next wednesday
+ *  it will fetch all "special events"
+ *
+ *  first implementation : simply create a paragraph for each event
+ *  second time : set up a calendar
+ *  third time : profit
+ */
+</script>
 <template>
   <div class="title">Nos Événements</div>
 

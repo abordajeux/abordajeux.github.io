@@ -1,6 +1,4 @@
-<script setup>
-const hello = "hello";
-</script>
+<script setup></script>
 <template>
   <div class="content">ALORS ON EST PERDU MOUSSAILLON ?</div>
 </template>
