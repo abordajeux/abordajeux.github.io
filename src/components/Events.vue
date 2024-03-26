@@ -31,21 +31,10 @@
   </div>
   <div class="title">Les événements ouverts au public</div>
   <div class="content">
-    Une fois par mois, en général le second samedi du mois, l'équipage propose
-    une activité ouverte à tous, et ne demandant en général soit aucune, soit
-    une très faible contribution. Il s'agit bien souvent d'un effort de
-    recrutement, et il serait dommage de faire fuir le chaland. Les événements
-    actuellement prévus sont...
-  </div>
-  <div class="subtitle">Découverte de Jeu de rôle</div>
-  <div class="content">
-    Une session d'une heure trente environ vous est proposée afin de vous
-    permettre d'essayer le jeu de rôle au travers de son représentant le plus
-    connu : Donjon et Dragons
-    <br />
-    Une session aura lieu de 14h00 à 15h30 environ, et la suivante aura lieu de
-    16h00 à 17h30 environ. Deux meneurs seront présents pour vous accompagner,
-    permettant ainsi à quatre équipes
+    Une fois par mois, l'équipage propose une activité ouverte à tous, et ne
+    demandant en général soit aucune, soit une très faible contribution. Il
+    s'agit bien souvent d'un effort de recrutement, et il serait dommage de
+    faire fuir le chaland. Les événements actuellement prévus sont...
   </div>
   <div class="subtitle">En avril, les pirates débarquent</div>
   <div class="content">
@@ -57,10 +46,10 @@
 
   <div class="subtitle">Nous cherchons des Challengers</div>
   <div class="content">
-    Le mercredi xx Mai, nous ressortons challenger, l'occasion d'affronter vos
-    amis dans la bonne humeur. Challenger est un jeu de bataille où chaque
-    joueur va construire sa bande de combattants pour des affrontements rapides
-    et simples. 7 petits matchs de 5 minutes, suivis d'une petite phase
+    En Mai, nous ressortirons challenger, l'occasion d'affronter vos amis dans
+    la bonne humeur. Challenger est un jeu de bataille où chaque joueur va
+    construire sa bande de combattants pour des affrontements rapides et
+    simples. 7 petits matchs de 5 minutes, suivis d'une petite phase
     d'affrontement entre les meilleurs de chaque groupe.
   </div>
 
@@ -81,23 +70,6 @@
     cours d'une petite aventure taillée sur mesure par nos membres, venez
     découvrir ce hobby soit au travers d'une aventure médiévale fantastique,
     soit en incarnant un power ranger le temps d'un après midi.
-  </div>
-
-  <div class="subtitle">Evenement aout</div>
-  <div class="content">Parce que moi, je suis au courant de rien</div>
-
-  <div class="subtitle">Evenement septembre</div>
-  <div class="content">Bon, je vous fais un peu marcher</div>
-
-  <div class="subtitle">Evenement octobre</div>
-  <div class="content">Là, je sais qu'il y a rien de prévu</div>
-
-  <div class="subtitle">Evenement novembre</div>
-  <div class="content">On va corriger ça bientôt</div>
-
-  <div class="subtitle">Evenement decembre</div>
-  <div class="content">
-    Je parie qu'ici, des gens auront du mal à prévoir des trucs
   </div>
 </template>
 <style scoped></style>
