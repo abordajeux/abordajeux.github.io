@@ -27,7 +27,7 @@ function resizeHandler() {
       <a href="mailto:association.alabordajeux@gmail.com" target="_blank"
         ><img src="../assets/Mail_logo.png" class="social-network"
       /></a>
-      <a href="discord" target="_blank"
+      <a href="https://discord.gg/4ZchWcxJek" target="_blank"
         ><img src="../assets/Discord_logo.png" class="social-network"
       /></a>
     </div>
