@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: '/abordajeux.github.io/',}, // IMPORTANT (remove later if using custom domain)
+    baseURL: '/',}, // IMPORTANT (remove later if using custom domain)
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@pinia/nuxt'],
