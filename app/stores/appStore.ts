@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { NavButton } from '~/types/navigation'
-
+import type { NavigationMenuItem } from '@nuxt/ui'
 
 export const usePirateStore = defineStore('application', () => {
     type ProjectsName = 'ndj' | 'niff'
@@ -27,7 +27,7 @@ export const usePirateStore = defineStore('application', () => {
             "icon": 'i-lucide-info'}
         ]
 
-    const projectNavigation: Record<ProjectsName, NavButton[] > = {
+    const projectNavigation: Record<ProjectsName, NavigationMenuItem[] > = {
             'ndj': [{
             "label":'Accueil',
             "to": '/',

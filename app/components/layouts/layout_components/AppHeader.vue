@@ -5,19 +5,25 @@
     import { usePirateStore} from '@/stores/appStore';
 
 const pirateStore = usePirateStore()
-const isOpen = ref(false)
 
   const isMobile = computed(() => pirateStore.isMobile)
   const headerButtons = computed(() => pirateStore.navigationButtons)
+
   onMounted(() => {
-    console.error(window.location.pathname.split('/').toReversed()[0])
     pirateStore.changeProject(window.location.pathname.split('/').toReversed()[0])
+
+      window.addEventListener('resize', onResize);
   })
+
+  function onResize(){
+    pirateStore.isMobile = innerWidth < 771 // at which size we start to think it might be good to restrict some elements
+  }
 </script>
 
 <template>
   <UHeader :ui="{
-    center: 'flex items-center justify-center'
+    center: 'md:flex items-center justify-center',
+    body:  'w-64 max-w-full',
   }">
  <!-- Left logo -->
     <template #left>
@@ -26,23 +32,8 @@ const isOpen = ref(false)
 
       <!-- Desktop navigation -->
     <template #default>
-      <div class="md:flex items-center gap-2">
-        <UButton
-        v-if="!isMobile"
-          v-for="button in headerButtons"
-          :key="button.to"
-          :to="button.to"
-          :icon="button.icon"
-          variant="ghost"
-        >
-          {{ button.label }}
-        </UButton>
-        <UButton
-        v-if="isMobile"
-        @click="isOpen = !isOpen"
-        icon="i-lucide-menu"
-        variant="ghost"
-      ></UButton>
+      <div class="invisible md:visible items-center gap-2">
+        <UNavigationMenu :items="headerButtons" color="neutral"/>
       </div>
     </template>
 
@@ -51,7 +42,18 @@ const isOpen = ref(false)
 
  <template #right>
   <a href="/info#JOIN"> <img :src="clickMe"/></a>
-
+</template>
+      <template #body>
+      <div class="p-4">
+        <UNavigationMenu
+          :items="headerButtons"
+          orientation="vertical"
+          :ui="{
+      link: 'flex-col gap-1',
+      linkLabel: 'block text-xl text-center ',
+    }"
+        />
+        </div>
 
     </template>
 

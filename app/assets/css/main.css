@@ -3,6 +3,7 @@
 
 @theme {
   --container-8xl: 80vh;
+  --breakpoint-xs: 36rem;
 }
 
 :root {

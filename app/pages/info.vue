@@ -2,7 +2,11 @@
 import * as v from 'valibot'
 import type { FormSubmitEvent, TableColumn } from '@nuxt/ui'
 import { Forminit } from 'forminit';
-import { isMobile } from '@/stores/appStore';
+import { usePirateStore } from '@/stores/appStore';
+const pirateStore = usePirateStore()
+
+const isMobile = computed(() => pirateStore.isMobile)
+
 const UIcon = resolveComponent ('UIcon')
 interface Members {
     "Avantage": string,
@@ -94,7 +98,7 @@ const membership_features = ref([
 
 ])
 
-const columns: TableColumn<Members>[]=[
+const mobile_columns : TableColumn<Members>[] = [
   {
     accessorKey: 'Avantage',
     header: 'Avantage',
@@ -119,8 +123,35 @@ const columns: TableColumn<Members>[]=[
     cell: ({ row }) => {
       return h(UIcon, { name: row.getValue('Tarif Plein') ? 'i-lucide-check' : 'i-lucide-x' })
     }
+  }
+
+]
+
+const desktop_columns: TableColumn<Members>[] = [{
+    accessorKey: 'Avantage',
+    header: 'Avantage',
   },
   {
+    accessorKey: 'Non membre',
+    header: 'Non membre',
+    cell: ({ row }) => {
+      return h(UIcon, { name: row.getValue('Non membre') ? 'i-lucide-check' : 'i-lucide-x' })
+    }
+  },
+    {
+    accessorKey: 'Tarif Réduit',
+    header: 'Tarif Réduit (100.-)',
+    cell: ({ row }) => {
+      return h(UIcon, { name: row.getValue('Tarif Réduit') ? 'i-lucide-check' : 'i-lucide-x' })
+    }
+  },
+    {
+    accessorKey: 'Tarif Plein',
+    header: 'Tarif Plein (200.-)',
+    cell: ({ row }) => {
+      return h(UIcon, { name: row.getValue('Tarif Plein') ? 'i-lucide-check' : 'i-lucide-x' })
+    }
+  },{
     accessorKey: 'Tarif Généreux',
     header: 'Tarif Généreux (300.-)',
     cell: ({ row }) => {
@@ -132,8 +163,15 @@ const columns: TableColumn<Members>[]=[
     cell: ({ row }) => {
       return h(UIcon, { name: row.getValue('Tarif Mécène') ? 'i-lucide-check' : 'i-lucide-x' })
     }
-  }
-]
+  }]
+
+const columns: Ref<TableColumn<Members>[]>=ref(isMobile.value ? mobile_columns : desktop_columns)
+
+watch(isMobile, () => {
+
+  columns.value = isMobile.value ? mobile_columns : desktop_columns
+
+})
 
 
 const forminit = new Forminit({ proxyUrl: 'https://forminit.com/f/7y9rmra9z9o' });
@@ -177,7 +215,6 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
   const formData = new FormData()
   Object.entries(form).forEach(([keyof, value]) =>
   formData.append(keyof, value))
-console.error(formData)
   const { data, error: submitError } = await forminit.submit( '7y9rmra9z9o' , formData);
 
   if (submitError) {
@@ -248,7 +285,7 @@ console.error(formData)
       <div class="text-xs p-3">
         Les mineurs entre 10 et 16 ans accompagnés payent la moitié du prix de leur parent
       </div>
-  <UTable sticky :data="membership_features"     :columns="columns" v-if="!isMobile">
+  <UTable sticky :data="membership_features"     :columns="columns" class="invisible xs:visible">
   </UTable>
   </div>
 
