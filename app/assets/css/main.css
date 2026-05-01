@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  --container-8xl: 80vh;
+}
+
+:root {
+  --ui-container: var(--container-8xl);
+  --ui-primary: #05037a;
+  --ui-secondary: #6f0358;
+  --ui-neutral: #011114;
+  --ui-success: #079113;
+  --ui-warning: #9d3f05;
+  --ui-error: #ff0000;
+}
+
+body {
+  background-color: rgb(248, 222, 199);
+  /*to do : disable night mode*/
+}
+
