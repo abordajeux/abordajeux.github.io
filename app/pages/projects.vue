@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-    import beerImage from '@/assets/images/beeroclock.png'
+    import placeholder from '@/assets/images/placeholder.png'
 
 
 </script>
@@ -17,7 +17,7 @@
     icon="i-lucide-skull"
     to="/nifff"
   >
-    <img :src="beerImage" />
+    <img :src="placeholder" />
   </UPageCard>
 
   <UPageCard
@@ -28,7 +28,7 @@
     icon="i-lucide-skull"
     to="/presque"
   >
-    <img :src="beerImage" />
+    <img :src="placeholder" />
   </UPageCard>
 
 </div>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
 import  {buildInitialCalendarIndex} from '~/components/layouts/composables/EventsHandler.composable'
-    import beerImage from '@/assets/images/beeroclock.png'
 import type { datedEvent } from '~/types/navigation'
 import EventSlideOver from '~/components/layouts/composables/eventSlideOver.vue'
 
@@ -21,7 +20,9 @@ async function  open(activity: datedEvent) {
 
 const events: Record<string, datedEvent[]> = buildInitialCalendarIndex(new Date('2026-01-01'), new Date('2026-12-31'))
 
-
+onUnmounted(() => {
+  slideover?.close()
+})
 
 function getEventsByDate(date: Date, verbose: boolean = false): datedEvent[] {
 

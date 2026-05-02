@@ -25,7 +25,7 @@ const mapShown = ref(false)
           {{ desc }}
         </div>
 
-        <img src=""/>
+        <img :src="resolveImage(activity.image_path)"/>
         <div v-for=" desc in activity.post_img_description" class="mt-2">
           {{ desc }}
         </div>
@@ -39,7 +39,8 @@ const mapShown = ref(false)
         v-if="activity.external_link"
         :icon="activity.external_link[2]"
         :to="activity.external_link[0]"
-        :target="activity.external_link[3]"> {{  activity.external_link[1] }}
+        :target="activity.external_link[3]"
+        > {{  activity.external_link[1] }}
       </UButton>
         <div v-if="activity.location">
           <div>
