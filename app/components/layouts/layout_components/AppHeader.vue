@@ -6,18 +6,16 @@
 
 const pirateStore = usePirateStore()
 
-  const isMobile = computed(() => pirateStore.isMobile)
   const headerButtons = computed(() => pirateStore.navigationButtons)
 
   onMounted(() => {
-    pirateStore.changeProject(window.location.pathname.split('/').toReversed()[0])
-
       window.addEventListener('resize', onResize);
   })
 
   function onResize(){
-    pirateStore.isMobile = innerWidth < 771 // at which size we start to think it might be good to restrict some elements
+    pirateStore.setUIChanges(innerWidth)
   }
+
 </script>
 
 <template>

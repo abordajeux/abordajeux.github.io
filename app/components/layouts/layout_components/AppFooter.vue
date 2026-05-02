@@ -1,23 +1,4 @@
 <script setup lang="ts">
-import { discordIcon, faceBookIcon, InstagramIcon } from '@/components/layouts/layout_components/footer/brands_svg';
-
-const socialButtons = [{
-    "label":'Mail',
-    "to": 'https://perdu.com',
-    "icon": 'i-lucide-mail'},
-  {
-    "label":'Instagram',
-    "to": 'https://perdu.com',
-    "icon": InstagramIcon},
-  {
-    "label":'Facebook',
-    "to": 'https://perdu.com',
-    "icon": faceBookIcon},
-  {
-    "label":'Discord',
-    "to": 'https://perdu.com',
-    "icon": discordIcon},]
-  // currently no discord icons on lucide
 
 </script>
 <template>
@@ -28,18 +9,58 @@ const socialButtons = [{
       </div>
 </template>
           <template #default>
-      <div class="md:flex items-center gap-2">
-        <UButton
-          v-for="button in socialButtons"
-          :key="button.to"
-          :to="button.to"
-          :icon="button.icon"
-          target="_blank"
+            <div class="w-48">
+<UMarquee pause-on-hover  :overlay="false">
+          <UButton
+            key="discord"
+            to="https://discord.gg/4ZchWcxJek"
+            icon="i-simple-icons-discord"
+            target="_blank"
+            variant="ghost"
+          >
+            Discord
+          </UButton>
+          <UButton
+          key="Instagram"
+          to="https://www.instagram.com/alabordajeux?igsh=MWlxZWp5ZjBwd2ZoNg=="
+          icon="i-simple-icons-instagram"
+            target="_blank"
           variant="ghost"
-        >
-          {{ button.label }}
+          >
+          Instagram
         </UButton>
-      </div>
+                  <UButton
+          key="Whatsapp"
+          to="https://chat.whatsapp.com/LxTac3q6Z7b2YIysWuZ2jL"
+          icon="i-simple-icons-whatsapp"
+            target="_blank"
+          variant="ghost"
+          >
+          Whatsapp
+        </UButton>
+                  <UButton
+          key="facebook"
+          to="https://www.facebook.com/share/18cotPgLuL/"
+          icon="i-simple-icons-facebook"
+            target="_blank"
+          variant="ghost"
+          >
+          Facebook
+        </UButton>
+                  <UButton
+          key="mail"
+          to="mailto:association.alabordajeux@gmail.com"
+          icon="i-lucide-mail"
+            target="_blank"
+          variant="ghost"
+          >
+          Mail
+        </UButton>
+
+        </UMarquee>
+            </div>
+
+
     </template>
 
 

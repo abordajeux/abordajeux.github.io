@@ -6,6 +6,7 @@ import { usePirateStore } from '@/stores/appStore';
 const pirateStore = usePirateStore()
 
 const isMobile = computed(() => pirateStore.isMobile)
+const hidePrices = computed(() => pirateStore.hidePrices)
 
 const UIcon = resolveComponent ('UIcon')
 interface Members {
@@ -200,6 +201,7 @@ const state = reactive({
 const toast = useToast()
 const showForm = ref(true)
 
+
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   await handleSubmit(event)
   toast.add({ title: 'Success', description: 'Votre demande a été transmise avec succès', color: 'success' })
@@ -279,14 +281,31 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
 
   </UForm>
   </UTheme>
-        <div class="text-3xl font-bold text-primary text-center p-3">
-        Prix et Avantages des membres
-      </div>
-      <div class="text-xs p-3">
+    <div class="text-3xl font-bold text-primary text-center p-3">
+    Prix et Avantages des membres
+  </div>
+<div v-if="!hidePrices">
+
+
+      <div>
+      <UIcon name="i-lucide-info" class="size-5 text-success"/> <span class="w-[60%] text-l" >Les tarifs affichés sont les tarifs à l'année. Les membres qui rejoignent en cours d'année ne paient pas les mois déjà écoulés.</span>
+            <div class="text-m p-3">
         Les mineurs entre 10 et 16 ans accompagnés payent la moitié du prix de leur parent
       </div>
-  <UTable sticky :data="membership_features"     :columns="columns" class="invisible xs:visible">
+      </div>
+  <UTable sticky :data="membership_features" :columns="columns">
   </UTable>
   </div>
+  <div v-else>
+    <div class="text-center">
+      Le tableau serait trop illisible sur cet écran. Nous vous proposons donc un PDF regroupant toute les informations
+    </div>
+    <UButton icon="i-lucide-file-down" color="success" to="https://perdu.com" target="_blank" class="text-center">
+      Récupérer un document qui vous informe sur les tarifs, les conditions, les avantages, et peut être même le prix du rhum
+    </UButton>
+</div>
+</div>
+
+
 
 </template>

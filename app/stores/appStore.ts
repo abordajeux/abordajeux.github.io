@@ -1,9 +1,8 @@
 import { defineStore } from 'pinia'
-import type { NavButton } from '~/types/navigation'
 import type { NavigationMenuItem } from '@nuxt/ui'
 
 export const usePirateStore = defineStore('application', () => {
-    type ProjectsName = 'ndj' | 'niff'
+    type ProjectsName = 'ndj' | 'nifff'
 
     const standardNavigation = [{
             "label":'Accueil',
@@ -49,12 +48,34 @@ export const usePirateStore = defineStore('application', () => {
             "to": '/projects/ndj/info',
             "icon": 'i-lucide-info'},
         ],
-            'niff': [],
+            'nifff': [{
+                "label":'Accueil',
+                "to": '/',
+                "icon": 'i-lucide-house'
+            },{
+                "label":'Le Projet',
+                "to": '/nifff',
+                "icon": 'i-lucide-presentation'
+            },{
+                "label":'Le Programme',
+                "to": '/nifff/programme',
+                "icon": 'i-lucide-calendar-check-2'
+            },{
+                "label":'Nous contacter',
+                "to": '/info',
+                "icon": 'i-lucide-info'
+            }],
         }
 
     const isMobile: Ref<boolean> = ref(false)
-    const navigationButtons: Ref<NavButton[]> = ref(standardNavigation)
+    const hidePrices: Ref<boolean> = ref(false)
+    const navigationButtons: Ref<NavigationMenuItem[]> = ref(standardNavigation)
     const currentProject: Ref<null | ProjectsName> = ref(null)
+
+    function setUIChanges(width: number) {
+        isMobile.value = width < 771
+        hidePrices.value = width < 600
+    }
 
     function changeProject(newProject?: string){
         if (newProject && Object.keys(projectNavigation).includes(newProject)){
@@ -69,9 +90,11 @@ export const usePirateStore = defineStore('application', () => {
 
         return {
             isMobile,
+            hidePrices,
             navigationButtons,
             currentProject,
             changeProject,
+            setUIChanges,
         }
 })
 

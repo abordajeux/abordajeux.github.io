@@ -31,7 +31,7 @@ const items = ["https://www.myludo.fr/img/jeux/1757080426/300/cp/67722.png", "ht
 
 
    <UButton
-    to="https://perdu.com"
+    to="https://www.myludo.fr/#!/profil/a-l-abordajeux-95567"
     target="_blank"
     icon="i-lucide-dices"
     trailing-icon="i-lucide-dices"

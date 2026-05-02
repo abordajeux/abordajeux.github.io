@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import { usePirateStore } from '@/stores/appStore';
+
+const pirateStore = usePirateStore()
+onBeforeMount(() => {
+        pirateStore.changeProject(window.location.pathname.split('/').toReversed()[0])
+
+})
+</script>
 <template>
   <div class="min-h-[400px] flex flex-col items-center justify-center">
     <h1 class="text-4xl font-bold text-primary">
