@@ -2,24 +2,66 @@
 
 import  {buildInitialCalendarIndex} from '~/components/layouts/composables/EventsHandler.composable'
     import beerImage from '@/assets/images/beeroclock.png'
+import type { datedEvent } from '~/types/navigation'
+import EventSlideOver from '~/components/layouts/composables/eventSlideOver.vue'
 
-const selectedDate = ref(null)
-const mapShown = ref(false)
-const getEventsForDate = (date: Date) => {
-  const isoDate = date.toISOString().split('T')[0]
-  const weekday = date.getDay()
+const overlay = useOverlay()
+const slideover = overlay.create(EventSlideOver)
+
+async function  open(activity: datedEvent) {
+  const instance = slideover.open({
+    activity
+  })
+
+  await instance.result
+
+  return
+
 }
 
-const events = buildInitialCalendarIndex(new Date('2026-01-01'), new Date('2026-12-31'))
-console.error(event)
+const events: Record<string, datedEvent[]> = buildInitialCalendarIndex(new Date('2026-01-01'), new Date('2026-12-31'))
 
-const tempEvent = events['mercredi-soir'][0]
-console.error(tempEvent)
 
-function toggleMap() {
-  mapShown.value = !mapShown.value
+
+function getEventsByDate(date: Date, verbose: boolean = false): datedEvent[] {
+
+  const event: datedEvent[] = []
+    Object.values(events).forEach((all_events: datedEvent[]) =>{
+        if(verbose) {
+    console.error(all_events)
+  }
+      const activity = all_events.find((act) => act.date.getDate() === date.getDate() && act.date.getFullYear() === date.getFullYear() && act.date.getMonth() === date.getMonth())
+      if(activity) {
+        event.push(activity)
+      }
+    })
+
+    return event
+}
+function getColorByDate(date: Date) {
+
+  const eventsForDate = getEventsByDate(date)
+
+  if (eventsForDate.length > 0) {
+    return 'success'
+  }
+
+  return undefined
 }
 
+function showSlide(date) {
+  if(date && date.year && date.month && date.day){
+  const eventsForTheDay = getEventsByDate(new Date(date.year, date.month -1, date.day))
+    // for now: we show only the first
+  if (eventsForTheDay.length > 0) {
+    open(eventsForTheDay[0]!)
+  }
+  else {
+    console.error("THERE IS A PROBLEM")
+  }
+}
+
+}
 </script>
 
 <template>
@@ -28,59 +70,16 @@ function toggleMap() {
       Calendrier des événements
     </h1>
 
-<USlideover :title="tempEvent?.title" :description="tempEvent?.date.toLocaleDateString('fr-FR')" :close="{
-      color: 'primary',
-      variant: 'outline',
-      class: 'rounded-full'
-    }">
-  <UCalendar :year-controls="false"/>
-
-  <template #body>
-    <div class="justify-center items-centers text-center font-display">
-       <UIcon name="i-lucide-alarm-clock" size="xl"/>  {{ `De ${tempEvent?.hours[0]} à ${tempEvent?.hours[1]}` }}
-
-       <div v-for=" desc in tempEvent?.pre_img_description" class="mt-2">
-          {{ desc }}
-        </div>
-
-        <img :src="beerImage"/>
-        <div v-for=" desc in tempEvent?.post_img_description" class="mt-2">
-          {{ desc }}
-        </div>
-        <div v-if="Object.keys(tempEvent!.prices).length > 0" class="mt-4">
-            Vous voulez participer ?
-        </div>
-        <div v-for="value in Object.entries(tempEvent!.prices)">
-          {{ `${value[0]} : ${value[1] === 0 ? 'gratuit' : value[1] +  ' CHF'}` }}
-        </div>
-        <UButton
-        v-if="tempEvent?.external_link"
-        :icon="tempEvent.external_link[2]"
-        :to="tempEvent.external_link[0]"
-        :target="tempEvent.external_link[3]"> {{  tempEvent.external_link[1] }}
-      </UButton>
-        <div v-if="tempEvent?.location">
-          <div>
-            <UButton icon="i-lucide-map-pin-house" @click="toggleMap" color="secondary"  class="mt-2 mb-2">{{tempEvent.location}}</UButton>
-          </div>
-          <div v-if="mapShown && tempEvent?.coordinates">
-            {{ tempEvent?.coordinates }}
-          </div>
-
-        </div>
+  <UCalendar :year-controls="false" >
+    <template #day="{ day }">
+      <div id="bruh" @click="showSlide(day)">
+      <UChip :show="!!getColorByDate(day.toDate('UTC'))" :color="getColorByDate(day.toDate('UTC'))" size="2xs">
+        {{ day.day }}
+      </UChip>
       </div>
+
     </template>
-</USlideover>
-<div v-if="selectedDate">
-  <div
-    v-for="event in getEventsForDate(selectedDate)"
-    :key="event._path"
-    class="mt-4 p-4 border rounded"
-  >
-    <h2 class="text-xl font-bold">{{ event.title }}</h2>
-    <p>{{ event.start }} - {{ event.end }}</p>
-    <p>{{ event.location }}</p>
-  </div>
-</div>
+
+  </UCalendar>
   </div>
 </template>
