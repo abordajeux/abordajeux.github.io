@@ -4,6 +4,11 @@ import type { datedEvent } from '~/types/navigation';
 const { activity } = defineProps<{
     activity: datedEvent,
 }>()
+
+function toggleMap() {
+  mapShown.value = !mapShown.value
+}
+const mapShown = ref(false)
 </script>
 
 <template>

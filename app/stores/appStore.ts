@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import type { NavigationMenuItem } from '@nuxt/ui'
 
 export const usePirateStore = defineStore('application', () => {
-    type ProjectsName = 'ndj' | 'nifff'
+    type ProjectsName = 'presque' | 'nifff'
 
     const standardNavigation = [{
             "label":'Accueil',
@@ -27,25 +27,17 @@ export const usePirateStore = defineStore('application', () => {
         ]
 
     const projectNavigation: Record<ProjectsName, NavigationMenuItem[] > = {
-            'ndj': [{
+            'presque': [{
             "label":'Accueil',
             "to": '/',
             "icon": 'i-lucide-house'},
         {
             "label":'L\'Événement en Bref',
-            "to": '/projects/ndj/',
-            "icon": 'i-lucide-calendar-days'},
+            "to": '/presque',
+            "icon": 'i-lucide-presentation'},
         {
-            "label":'Le Programme',
-            "to": '/projects/ndj/events',
-            "icon": 'i-lucide-sailboat'},
-        {
-            "label":'Nos jeux',
-            "to": '/projects/ndj/games',
-            "icon": 'i-lucide-chess-queen'},
-        {
-            "label":'Informations et Contact',
-            "to": '/projects/ndj/info',
+            "label":'Nous contacter',
+            "to": '/info',
             "icon": 'i-lucide-info'},
         ],
             'nifff': [{
