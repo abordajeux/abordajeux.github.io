@@ -300,7 +300,7 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
     <div class="text-center">
       Le tableau serait trop illisible sur cet écran. Nous vous proposons donc un PDF regroupant toute les informations
     </div>
-    <UButton icon="i-lucide-file-down" color="success" to="https://perdu.com" target="_blank" class="text-center">
+    <UButton icon="i-lucide-file-down" color="success" :to="resolveFile('tarifs_avantages_adhesion.pdf')" download class="text-center">
       Récupérer un document qui vous informe sur les tarifs, les conditions, les avantages, et peut être même le prix du rhum
     </UButton>
 </div>
