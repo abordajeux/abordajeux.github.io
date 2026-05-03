@@ -4,16 +4,24 @@ const items = ["https://www.myludo.fr/img/jeux/1757080426/300/cp/67722.png", "ht
 </script>
 
 <template>
-  <div class="min-h-[80vh] items-center justify-center flex flex-col">
+  <div class="min-h-[80vh] items-center flex flex-col text-xl">
     <h1 class="text-4xl font-bold text-primary">
       Nos Jeux
     </h1>
     <div class="justify-center p-3">
-      L'association est encore jeune et ne dispose pas d'une collection très étoffée. Cette dernière croît cependant régulièrement, et nos membres nous suggèrent régulièrement des nouveautés, ou des classiques, que nous devrions, à leur avis, posséder.
+      L'association est encore jeune et ne dispose pas d'une collection très étoffée. Cette dernière croît tous les mois, et nos membres nous suggèrent des nouveautés, ou des classiques, que nous devrions, à leur avis, posséder. Il arrive même parfois que nous les écoutions.
     </div>
     <div class="justify-center p-3">
-      Nous avons également quelques passionnés de jeux de rôles qui proposent régulièrement des campagnes ou des one-shots. Si vous souhaitez être mis au courant du début d'une campagne ou de l'organisation d'un one shot, n'hésitez pas à nous contacter.
+      Nous proposons aussi régulièrement des campagnes ou des one-shots de jeu de rôle. Si vous souhaitez être mis au courant du début d'une campagne ou de l'organisation d'un one shot, n'hésitez pas à nous contacter.
     </div>
+   <UButton
+    to="https://www.myludo.fr/#!/profil/a-l-abordajeux-95567"
+    target="_blank"
+    icon="i-lucide-dices"
+    trailing-icon="i-lucide-dices"
+    variant="ghost"
+    color="neutral"
+    >Allez voir notre collection complète sur MyLudo</UButton>
     <div id="LAST_AQUISITIONS" class="p-3 text-3xl font-bold text-primary ">
       Nos Dernières Acquisitions
     </div>
@@ -30,13 +38,6 @@ const items = ["https://www.myludo.fr/img/jeux/1757080426/300/cp/67722.png", "ht
   </div>
 
 
-   <UButton
-    to="https://www.myludo.fr/#!/profil/a-l-abordajeux-95567"
-    target="_blank"
-    icon="i-lucide-dices"
-    trailing-icon="i-lucide-dices"
-    variant="ghost"
-    color="neutral"
-    >Allez voir notre collection complète sur MyLudo</UButton>
     </div>
+
 </template>

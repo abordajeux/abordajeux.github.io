@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { datedEvent } from '~/types/navigation';
 
+// TODO : rework external_link quickly to have an object structure rather than an array
+
 const { activity } = defineProps<{
     activity: datedEvent,
 }>()
@@ -47,7 +49,7 @@ const mapShown = ref(false)
             <UButton icon="i-lucide-map-pin-house" @click="toggleMap" color="secondary"  class="mt-2 mb-2">{{activity.location}}</UButton>
           </div>
           <div v-if="mapShown && activity.coordinates">
-            <iframe :src="`https://map.geo.admin.ch/#/embed?lang=en&center=${activity.coordinates}&z=10&topic=ech&layers=&bgLayer=ch.swisstopo.pixelkarte-grau&hideEmbedUI&crosshair=cross`" style="border: 0;width: 250px;height: 300px;max-width: 100%;max-height: 100%;" allow="geolocation"></iframe>
+            <iframe :src="`https://map.geo.admin.ch/#/embed?lang=en&center=${activity.coordinates}&z=10&topic=ech&layers=&bgLayer=ch.swisstopo.pixelkarte-grau&hideEmbedUI&crosshair=cross`" style="border: 0;width: 100%;height: 300px;max-width: 100%;max-height: 100%;" allow="geolocation"></iframe>
           </div>
 
         </div>

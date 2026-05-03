@@ -44,13 +44,18 @@ function getColorByDate(date: Date) {
   const eventsForDate = getEventsByDate(date)
 
   if (eventsForDate.length > 0) {
-    return 'success'
+    return eventsForDate[0]?.isPublic ? 'success' : 'warning'
   }
 
   return undefined
 }
 
-function showSlide(date) {
+interface DateLike {
+  year: number,
+  month: number,
+  day: number
+}
+function showSlide(date : DateLike) {
   if(date && date.year && date.month && date.day){
   const eventsForTheDay = getEventsByDate(new Date(date.year, date.month -1, date.day))
     // for now: we show only the first
@@ -58,7 +63,7 @@ function showSlide(date) {
     open(eventsForTheDay[0]!)
   }
   else {
-    console.error("THERE IS A PROBLEM")
+    console.error("THERE IS A PROBLEM BOSS")
   }
 }
 
@@ -66,21 +71,23 @@ function showSlide(date) {
 </script>
 
 <template>
-  <div class="min-h-[80vh] flex flex-col items-center justify-center p-1">
+  <div class="min-h-[80vh] flex flex-col items-center p-3">
+
+    <img :src="resolveImage('img_calendar.png')" />
+
     <h1 class="text-4xl font-bold text-primary p-3">
       Calendrier des événements
     </h1>
 
-  <UCalendar :year-controls="false" >
-    <template #day="{ day }">
-      <div id="bruh" @click="showSlide(day)">
-      <UChip :show="!!getColorByDate(day.toDate('UTC'))" :color="getColorByDate(day.toDate('UTC'))" size="2xs">
-        {{ day.day }}
-      </UChip>
-      </div>
+    <UCalendar :year-controls="false">
+      <template #day="{ day }">
+        <div id="bruh" @click="showSlide(day)">
+          <UChip :show="!!getColorByDate(day.toDate('UTC'))" :color="getColorByDate(day.toDate('UTC'))" size="2xs">
+            {{ day.day }}
+          </UChip>
+        </div>
+      </template>
+    </UCalendar>
 
-    </template>
-
-  </UCalendar>
   </div>
 </template>

@@ -230,82 +230,92 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
 </script>
 
 <template>
-  <div class="min-h-[80vh] flex flex-col items-center justify-center p-1">
+
+  <div class="min-h-[80vh] flex flex-col items-center p-1">
+
     <h1 class="text-4xl font-bold text-primary flex ">
       Informations à nôtre sujet.
     </h1>
+
     <div id="LOCAL" class="items-center justify-center p-3">
       <div class="text-3xl font-bold text-primary text-center">
         Où Jouons nous ?
       </div>
+
       <div v-if="localGrabDate < currentDate" class="p-3">
         Situé à la Rue de la Gare 4 à Peseux, le local est le lieu central de l'association,
         quartier général de l'équipage où l'on organise la majorité de nos événements réguliers.
         Il est disponible pour tout membre qui souhaite organiser une petite partie ou deux de jeu,
         même en dehors des activités officielles.
       </div>
+
       <div v-else class="p-3">
         On squatte à l'hôtel des associations pour le moment.
       </div>
+
       <iframe src="https://map.geo.admin.ch/#/embed?lang=en&center=2561604.98,1205068.07&z=9.882&topic=ech&layers=KML|https://public.geo.admin.ch/api/kml/files/DqxEqk-0RFSxh3rtO38Z9g&bgLayer=ch.swisstopo.pixelkarte-grau&featureInfo=default&noSimpleZoom=true&hideEmbedUI" style="border: 0;width: 100%;height: 400px;max-width: 100%;max-height: 100%;" allow="geolocation"></iframe>
     </div>
 
     <div id="JOIN" class="p-3 text-3xl font-bold text-primary ">
       Nous rejoindre ou nous contacter
     </div>
+
     <UTheme
     :ui="{
       formField: {
         root: 'flex max-sm:flex-col justify-between gap-8 [&>*]:flex-1'      },
     }">
-     <UForm :schema="schema" :state="state" class="space-y-4 w-full" @submit="onSubmit" v-if="showForm">
-      <UFormField label="Pourquoi nous écrivez vous ?" name="subject" >
-      <UInput v-model="state['fi-text-subject']" class="w-full"/>
-    </UFormField>
+      <UForm :schema="schema" :state="state" class="space-y-4 w-full" @submit="onSubmit" v-if="showForm">
 
-    <UFormField label="Email" name="email">
-      <UInput v-model="state['fi-sender-email']" class="w-full"/>
-    </UFormField>
+        <UFormField label="Pourquoi nous écrivez vous ?" name="subject" >
+          <UInput v-model="state['fi-text-subject']" class="w-full"/>
+        </UFormField>
 
-    <UFormField label="Message" name="message">
-      <UTextarea v-model="state['fi-text-message']" type="textarea" class="w-full"/>
-    </UFormField>
-    <div v-if="status === 'error'">
-      {{  error }}
-    </div>
-    <UFormField label="" name ="submit">
-    <UButton type="submit" :disabled="status === 'success' || status === 'error'">
-      {{ status === 'loading' ? 'Envoi en cours' : status === 'success' ? 'Merci de votre message' : 'Envoyer'}}
-    </UButton>
-    </UFormField>
+        <UFormField label="Email" name="email">
+          <UInput v-model="state['fi-sender-email']" class="w-full"/>
+        </UFormField>
 
-  </UForm>
-  </UTheme>
+        <UFormField label="Message" name="message">
+          <UTextarea v-model="state['fi-text-message']" type="textarea" class="w-full"/>
+        </UFormField>
+
+        <div v-if="status === 'error'">
+          {{  error }}
+        </div>
+
+        <UFormField label="" name ="submit">
+          <UButton type="submit" :disabled="status === 'success' || status === 'error'">
+            {{ status === 'loading' ? 'Envoi en cours' : status === 'success' ? 'Merci de votre message' : 'Envoyer'}}
+          </UButton>
+        </UFormField>
+
+      </UForm>
+    </UTheme>
+
     <div class="text-3xl font-bold text-primary text-center p-3">
-    Prix et Avantages des membres
-  </div>
-<div v-if="!hidePrices">
-
-
-      <div>
-      <UIcon name="i-lucide-info" class="size-5 text-success"/> <span class="w-[60%] text-l" >Les tarifs affichés sont les tarifs à l'année. Les membres qui rejoignent en cours d'année ne paient pas les mois déjà écoulés.</span>
-            <div class="text-m p-3">
-        Les mineurs entre 10 et 16 ans accompagnés payent la moitié du prix de leur parent
-      </div>
-      </div>
-  <UTable sticky :data="membership_features" :columns="columns">
-  </UTable>
-  </div>
-  <div v-else>
-    <div class="text-center">
-      Le tableau serait trop illisible sur cet écran. Nous vous proposons donc un PDF regroupant toute les informations
+      Prix et Avantages des membres
     </div>
-    <UButton icon="i-lucide-file-down" color="success" :to="resolveFile('tarifs_avantages_adhesion.pdf')" download class="text-center">
-      Récupérer un document qui vous informe sur les tarifs, les conditions, les avantages, et peut être même le prix du rhum
-    </UButton>
-</div>
-</div>
 
+    <div v-if="!hidePrices">
+      <div>
+        <UIcon name="i-lucide-info" class="size-5 text-success"/> <span class="w-[60%] text-l" >Les tarifs affichés sont les tarifs à l'année. Les membres qui rejoignent en cours d'année ne paient pas les mois déjà écoulés.</span>
+        <div class="text-m p-3">
+          Les mineurs entre 10 et 16 ans accompagnés payent la moitié du prix de leur parent
+        </div>
+      </div>
 
+      <UTable sticky :data="membership_features" :columns="columns"/>
 
+    </div>
+    <div v-else>
+      <div class="text-center">
+        Le tableau serait trop illisible sur cet écran. Nous vous proposons donc un PDF regroupant toute les informations
+      </div>
+
+      <UButton icon="i-lucide-file-down" color="success" :to="resolveFile('tarifs_avantages_adhesion.pdf')" download class="text-center">
+        Récupérer un document qui vous informe sur les tarifs, les conditions, les avantages, et peut être même le prix du rhum
+      </UButton>
+
+    </div>
+  </div>
 </template>

@@ -9,7 +9,7 @@ onBeforeMount(() => {
 })
 </script>
 <template>
-  <div class="min-h-[400px] flex flex-col items-center justify-center text-xl text-center">
+  <div class="min-h-[80vh] flex flex-col items-center text-xl text-center">
     <img :src="logo" class="p-3"/>
     <div class="p-3">
       Oyez Oyez braves matelots !

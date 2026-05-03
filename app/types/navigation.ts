@@ -5,6 +5,9 @@ export interface NavButton {
   icon: string
 }
 
+export type NifffRoom = 'JDR 1' | 'JDR 2' | 'JDS'
+
+export type PresqueRoom = 'JDR Cheminée 1' | 'JDR Cheminée 2' | 'JDR Cheminée Caché 1' | 'JDR Cheminée Caché 2' | 'JDR Cheminée Couloi 1' | 'JDR Cheminée Couloir 2' | 'Salle principale' | 'Scène'
 
 export type baseEvent = {
     id: string,
@@ -21,6 +24,7 @@ export type baseEvent = {
     organizer?:string,
     isPublic: boolean,
     prices: Record<string, number>
+    room ? : NifffRoom | PresqueRoom
 }
 
 export type datedEvent = baseEvent & {
