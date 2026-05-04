@@ -85,7 +85,8 @@ function showSlide(date : DateLike) {
     root: 'text-lg p-4',
     header: 'text-xl',
     cell: 'h-12 w-12 text-base'
-  }">
+  }"
+    locale="fr-FR">
       <template #day="{ day }">
         <div id="bruh" @click="showSlide(day)">
           <UChip :show="!!getColorByDate(day.toDate('UTC'))" :color="getColorByDate(day.toDate('UTC'))" size="2xs">
