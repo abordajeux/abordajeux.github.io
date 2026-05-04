@@ -24,7 +24,7 @@
     id="PNJ"
     class="w-full max-w-md flex-1"
     title="Les Presques 24h du Jeu"
-    description="L'abordajeux revient en 2026 avec presques 24h de jeux de sociétés et de rôles. Viendez où je vous pète les genoux :3."
+    description="L'abordajeux revient en 2026 avec presques 24h de jeux de sociétés et de rôles. Viendez tous:3."
     icon="i-lucide-skull"
     to="/presque"
   >
