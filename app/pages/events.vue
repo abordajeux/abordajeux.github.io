@@ -68,6 +68,8 @@ function showSlide(date : DateLike) {
 }
 
 }
+
+
 </script>
 
 <template>
@@ -79,7 +81,11 @@ function showSlide(date : DateLike) {
       Calendrier des événements
     </h1>
 
-    <UCalendar :year-controls="false">
+    <UCalendar :year-controls="false"   :ui="{
+    root: 'text-lg p-4',
+    header: 'text-xl',
+    cell: 'h-12 w-12 text-base'
+  }">
       <template #day="{ day }">
         <div id="bruh" @click="showSlide(day)">
           <UChip :show="!!getColorByDate(day.toDate('UTC'))" :color="getColorByDate(day.toDate('UTC'))" size="2xs">
