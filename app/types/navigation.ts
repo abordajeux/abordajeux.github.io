@@ -12,7 +12,7 @@ export type PresqueRoom = 'JDR Cheminée 1' | 'JDR Cheminée 2' | 'JDR Cheminée
 export type baseEvent = {
     id: string,
     title: string,
-    repetitionRule: RRule,
+    repetitionRule?: RRule,
     hours: string[],
     pre_img_description?: string[],
     post_img_description?: string[]

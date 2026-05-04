@@ -80,7 +80,7 @@ export function buildInitialCalendarIndex(start: Date, end: Date) {
   const index: Record<string, datedEvent[]> = {}
 
   recurringEvents.forEach((recurringEvent) => {
-    const dates = recurringEvent.repetitionRule.between(start, end)
+    const dates = recurringEvent.repetitionRule!.between(start, end)
     if(dates.length > 0) {
         index[recurringEvent.id] = []
     }

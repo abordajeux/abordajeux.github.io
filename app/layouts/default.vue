@@ -11,7 +11,7 @@ import AppFooter from '@/components/layouts/layout_components/AppFooter.vue'
     />
 
     <main class="flex-1">
-      <div class="max-w-3xl mx-auto px-4 flex flex-col h-full max-h-[80vh] overflow-scroll">
+      <div class="max-w-3xl mx-auto px-4 flex flex-col h-full max-h-[80vh] overflow-auto scrollbar-style">
         <slot/>
 
         <img :src="resolveImage('banner_abordajeux.png')" class="opacity-25 bottom-10 w-full max-w-3xl sticky -z-40"/>
@@ -25,4 +25,9 @@ import AppFooter from '@/components/layouts/layout_components/AppFooter.vue'
 </template>
 
 <style>
+.scrollbar-style{
+  scrollbar-width: thin;
+  scrollbar-color: rgba(135, 92, 51, 0.5) rgba(105, 85, 61, 0.5);
+}
+
 </style>
