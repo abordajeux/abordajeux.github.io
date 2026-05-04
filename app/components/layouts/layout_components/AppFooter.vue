@@ -2,12 +2,7 @@
 
 </script>
 <template>
-  <UFooter >
-    <template #right>
-      <div>
-        © 2026 À L'ABORDAJEUX
-      </div>
-</template>
+  <UFooter class="max-h-[10vh]">
           <template #default>
             <div class="w-48">
 <UMarquee pause-on-hover  :overlay="false">
