@@ -250,7 +250,7 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
       </div>
 
       <div v-else class="p-3">
-        On squatte à l'hôtel des associations pour le moment.
+        À l'heure actuelle, nos soirées régulières ont lieu à l'hôtel des associations
       </div>
 
       <iframe src="https://map.geo.admin.ch/#/embed?lang=en&center=2561604.98,1205068.07&z=9.882&topic=ech&layers=KML|https://public.geo.admin.ch/api/kml/files/DqxEqk-0RFSxh3rtO38Z9g&bgLayer=ch.swisstopo.pixelkarte-grau&featureInfo=default&noSimpleZoom=true&hideEmbedUI" style="border: 0;width: 100%;height: 400px;max-width: 100%;max-height: 100%;" allow="geolocation"></iframe>
