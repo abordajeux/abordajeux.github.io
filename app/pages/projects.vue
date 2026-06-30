@@ -17,7 +17,7 @@
     icon="i-lucide-skull"
     to="/nifff"
   >
-    <img :src="placeholder" />
+    <img :src="resolveImage('nifff_affiche_semaine.jpeg')" class="max-h-100 w-auto"/>
   </UPageCard>
 
   <UPageCard
@@ -28,8 +28,10 @@
     icon="i-lucide-skull"
     to="/presque"
   >
-    <img :src="placeholder" />
+    <img :src="placeholder" class="max-h-100 w-auto"/>
+    <div class="text-xs">
+        <UIcon name="i-lucide-brush" class="text-xl"/> placeholder par JonGriffon
+    </div>
   </UPageCard>
-
 </div>
 </template>

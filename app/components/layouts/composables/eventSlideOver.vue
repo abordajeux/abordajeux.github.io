@@ -27,7 +27,15 @@ const mapShown = ref(false)
           {{ desc }}
         </div>
 
-        <img :src="resolveImage(activity.image_path)"/>
+        <img :src="resolveImage(activity.image_path)" />
+        <div v-if="activity.image_copyright" class="mt-2">
+          <UButton
+          v-if="activity.image_copyright"
+          icon="i-lucide-brush"
+          :to="activity.image_copyright[1]"
+          target="_blank"
+          >{{ activity.image_copyright[0]}}</UButton>
+        </div>
         <div v-for=" desc in activity.post_img_description" class="mt-2">
           {{ desc }}
         </div>
@@ -37,7 +45,7 @@ const mapShown = ref(false)
         <div v-for="value in Object.entries(activity!.prices)">
           {{ `${value[0]} : ${value[1] === 0 ? 'gratuit' : value[1] +  ' CHF'}` }}
         </div>
-        <UButton
+        <UButton class="mt-2"
         v-if="activity.external_link"
         :icon="activity.external_link[2]"
         :to="activity.external_link[0]"

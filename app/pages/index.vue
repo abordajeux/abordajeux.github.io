@@ -4,7 +4,7 @@ import { usePirateStore } from '@/stores/appStore';
 
 const pirateStore = usePirateStore()
 onBeforeMount(() => {
-        pirateStore.changeProject(window.location.pathname.split('/').toReversed()[0])
+        pirateStore.changeProject(window.location.pathname.split('/').toReversed()[Number(!!window.location.pathname.endsWith('/'))])
 
 })
 </script>

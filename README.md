@@ -1,75 +1,31 @@
-# Nuxt Minimal Starter
+# Bienvenue sur le repo Git de l'association à l'Abordajeux
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Il s'agit d'un site web simple, utilisant vue, nuxt UI, et certainements d'autres trucs que j'ai oublié.
 
-## Setup
+Il s'auto déploie à l'aide d'une github action, ne contient aucun cookie, aucune session, aucun credentials, et ça me va très bien comme ça.
 
-Make sure to install dependencies:
+## Comment lancer le projet ?
 
-```bash
-# npm
-npm install
+1. cloner le repo
+2. pnpm run dev
+3. profit
 
-# pnpm
-pnpm install
+## Roadmap pour le futur ?
 
-# yarn
-yarn install
+1. faire en sorte de mettre une petite mention aux artistes qui ont fait des illustrations qui sont utilisées sur le site afin de les créditer un minimum.
+2. faire en sorte d'avoir un programme affichable correctement (deadline: mi juin 2026)
+3. concevoir une api simple et une base de donnée, afin de gérer des inscriptions (deadline: fin juillet 2026)
+4. prévoir un système de CMS pour que je n'aie pas besoin de gérer le contenu du site. (deadline: un de ces jours)
+5. Agenda ludique de la région et des copains (festiludi, grande partie, deck'lic, autre)
 
-# bun
-bun install
-```
+## Contenu à ajouter prochainement ?
 
-## Development Server
+1. Notre participation prochaine au NIFFF, et notre programme pendant l'événement.
+2. L'organisation des `presque` 24h du jeu
+3. L'organisation d'une manifestation supplémentaire ? Peut être ?
 
-Start the development server on `http://localhost:3000`:
+## FAQ
 
-```bash
-# npm
-npm run dev
+### Il est pas un peu pourri ton site ?
 
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Oui, mais c'est pas très grave.

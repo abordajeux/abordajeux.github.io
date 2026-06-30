@@ -19,6 +19,7 @@ export type baseEvent = {
     location?: string,
     coordinates?:string,
     image_path?: string,
+    image_copyright?:[string, string], // label, link
     games?: [],
     external_link?: string[]
     organizer?:string,

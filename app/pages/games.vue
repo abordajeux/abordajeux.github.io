@@ -19,8 +19,10 @@ const items = ["https://www.myludo.fr/img/jeux/1757080426/300/cp/67722.png", "ht
     target="_blank"
     icon="i-lucide-dices"
     trailing-icon="i-lucide-dices"
-    variant="ghost"
     color="neutral"
+    size="xl"
+    variant="ghost"
+    class="p-5 text-xl"
     >Allez voir notre collection complète sur MyLudo</UButton>
     <div id="LAST_AQUISITIONS" class="p-3 text-3xl font-bold text-primary ">
       Nos Dernières Acquisitions
