@@ -157,6 +157,7 @@ onBeforeUnmount(() => {
         </UPageCard>
         <UPageCard v-for="activity in activities"
             :id="activity.id"
+            :key="activity.id"
             :title="activity.title"
             :description="activity.cardDescription"
             @click="openPanel(activity)">

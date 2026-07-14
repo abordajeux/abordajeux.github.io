@@ -23,7 +23,7 @@ const mapShown = ref(false)
     <div class="justify-center items-centers text-center font-display">
        <UIcon name="i-lucide-alarm-clock" size="xl"/>  {{ `De ${activity.hours[0]} à ${activity.hours[1]}` }}
 
-       <div v-for=" desc in activity.pre_img_description" class="mt-2">
+       <div v-for="desc in activity.pre_img_description" :key="desc" class="mt-2">
           {{ desc }}
         </div>
 
@@ -36,13 +36,13 @@ const mapShown = ref(false)
           target="_blank"
           >{{ activity.image_copyright[0]}}</UButton>
         </div>
-        <div v-for=" desc in activity.post_img_description" class="mt-2">
+        <div v-for="desc in activity.post_img_description" :key="desc" class="mt-2">
           {{ desc }}
         </div>
         <div v-if="Object.keys(activity!.prices).length > 0" class="mt-4">
             Vous voulez participer ?
         </div>
-        <div v-for="value in Object.entries(activity!.prices)">
+        <div v-for="value in Object.entries(activity!.prices)" :key="value[0]">
           {{ `${value[0]} : ${value[1] === 0 ? 'gratuit' : value[1] +  ' CHF'}` }}
         </div>
         <UButton class="mt-2"

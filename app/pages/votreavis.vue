@@ -49,8 +49,8 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
   const form = e.data;
   const formData = new FormData()
   Object.entries(form).forEach(([keyof, value]) =>
-  formData.append(keyof, value))
-  const { data, error: submitError } = await forminit.submit( 'ulekc1cw41t' , formData);
+  formData.append(keyof, String(value)))
+  const { error: submitError } = await forminit.submit( 'ulekc1cw41t' , formData);
 
   if (submitError) {
     status.value = 'error';
