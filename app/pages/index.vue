@@ -1,16 +1,9 @@
 <script setup lang="ts">
-import { usePirateStore } from '@/stores/appStore';
     import logo from '@/assets/images/Logo-new.png'
-
-const pirateStore = usePirateStore()
-onBeforeMount(() => {
-        pirateStore.changeProject(window.location.pathname.split('/').toReversed()[Number(!!window.location.pathname.endsWith('/'))])
-
-})
 </script>
 <template>
   <div class="min-h-[80vh] flex flex-col items-center text-xl text-center">
-    <img :src="logo" class="p-3"/>
+    <img :src="logo" class="p-3">
     <div class="p-3">
       Oyez Oyez braves matelots !
     </div>

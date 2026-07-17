@@ -74,7 +74,7 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
       formField: {
         root: 'flex max-sm:flex-col justify-between gap-8 [&>*]:flex-1'      },
     }">
-      <UForm :schema="schema" :state="state" class="space-y-4 w-full" @submit="onSubmit" v-if="showForm">
+      <UForm v-if="showForm" :schema="schema" :state="state" class="space-y-4 w-full" @submit="onSubmit">
 
         <UFormField label="Sur quel événement souhaitez vous faire un retour ?" name="subject" >
             <UInputMenu v-model="state['fi-text-event']" :items="possibleEvents" />

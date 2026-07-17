@@ -89,5 +89,3 @@ export const usePirateStore = defineStore('application', () => {
             setUIChanges,
         }
 })
-
-export const isMobile = false

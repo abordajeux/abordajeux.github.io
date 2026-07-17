@@ -115,11 +115,9 @@ onBeforeUnmount(() => {
 <template>
 
   <div class="min-h-[400px] flex flex-wrap justify-center items-start gap-6">
-    <div class="text-xl text-neutral p-3" v-if="today.getTime() < nifff_end_date.getTime()">
+    <div v-if="today.getTime() < nifff_end_date.getTime()" class="text-xl text-neutral p-3">
         <UPage>
-        <UPageHeader :headline="`Activités du 4 au 9 Juillet 2026`">
-
-        </UPageHeader>
+        <UPageHeader :headline="`Activités du 4 au 9 Juillet 2026`"/>
 
         <UPageCard
             :id="everyDay.id"
@@ -132,7 +130,7 @@ onBeforeUnmount(() => {
       <img
         :src="resolveImage(everyDay.image_path)"
         class="h-48 w-auto flex-shrink-0 rounded"
-      />
+      >
 
       <!-- Right -->
       <div class="flex flex-col flex-1">
@@ -141,12 +139,12 @@ onBeforeUnmount(() => {
           {{ everyDay.cardDescription }}
         </p>
 
-        <div class="mt-4 text-xs" v-if="everyDay.organizer">
+        <div v-if="everyDay.organizer" class="mt-4 text-xs">
           <UIcon name="i-lucide-contact" class="text-xl" />
           {{ everyDay.organizer }}
         </div>
 
-        <div class="text-xs" v-if="everyDay.hours.length === 2">
+        <div v-if="everyDay.hours.length === 2" class="text-xs">
           <UIcon name="i-lucide-clock" class="text-xl" />
           Tous les jours, de {{ everyDay.hours[0] }} à {{ everyDay.hours[1] }}
         </div>
@@ -155,7 +153,8 @@ onBeforeUnmount(() => {
   </template>
 
         </UPageCard>
-        <UPageCard v-for="activity in activities"
+        <UPageCard
+v-for="activity in activities"
             :id="activity.id"
             :key="activity.id"
             :title="activity.title"
@@ -169,7 +168,7 @@ onBeforeUnmount(() => {
       <img
         :src="resolveImage(activity.image_path)"
         class="h-48 w-auto flex-shrink-0 rounded"
-      />
+      >
 
       <!-- Right -->
       <div class="flex flex-col flex-1">
@@ -178,16 +177,16 @@ onBeforeUnmount(() => {
           {{ activity.cardDescription }}
         </p>
 
-        <div class="mt-4 text-xs" v-if="everyDay.organizer">
+        <div v-if="everyDay.organizer" class="mt-4 text-xs">
           <UIcon name="i-lucide-contact" class="text-xl" />
           {{ activity.organizer }}
         </div>
 
-        <div class="text-xs" v-if="everyDay.hours.length === 2">
+        <div v-if="everyDay.hours.length === 2" class="text-xs">
           <UIcon name="i-lucide-clock" class="text-xl" />
           Le {{ activity.date.toLocaleDateString('FR-fr') }}, de {{ activity.hours[0] }} à {{ activity.hours[1] }}
         </div>
-        <div class="text-xs" v-if="activity.image_copyright">
+        <div v-if="activity.image_copyright" class="text-xs">
                     <UIcon name="i-lucide-brush" class="text-xl"/> {{activity.image_copyright[0]}}
         </div>
       </div>
@@ -198,7 +197,7 @@ onBeforeUnmount(() => {
     </UPageCard>
         </UPage>
     </div>
-    <div class="text-xl text-neutral p-3" v-else>
+    <div v-else class="text-xl text-neutral p-3">
         L'événement est fini, merci d'être venu
     </div>
   </div>
