@@ -15,10 +15,10 @@
   --ui-success: #079113;
   --ui-warning: #9d3f05;
   --ui-error: #ff0000;
+  --page-bg: #ecdac1;
 }
 
 body {
-  background-color: #ecdac1;
-  /*to do : disable night mode*/
+  background-color: var(--page-bg);
 }
 
