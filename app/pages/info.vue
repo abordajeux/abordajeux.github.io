@@ -253,7 +253,7 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
         À l'heure actuelle, nos soirées régulières ont lieu à l'hôtel des associations
       </div>
 
-      <iframe src="https://map.geo.admin.ch/#/embed?lang=en&center=2557902.08,1203975.84&z=11&topic=ech&layers=KML%7Chttps://public.geo.admin.ch/api/kml/files/uRMSLxNnRDizU1MJBS7Y9w&bgLayer=ch.swisstopo.pixelkarte-grau&featureInfo=default" style="border: 0;width: 100%;height: 400px;max-width: 100%;max-height: 100%;" allow="geolocation"></iframe>
+      <iframe src="https://map.geo.admin.ch/#/embed?lang=en&center=2557902.08,1203975.84&z=11&topic=ech&layers=KML%7Chttps://public.geo.admin.ch/api/kml/files/uRMSLxNnRDizU1MJBS7Y9w&bgLayer=ch.swisstopo.pixelkarte-grau&featureInfo=default" style="border: 0;width: 100%;height: 400px;max-width: 100%;max-height: 100%;" allow="geolocation" />
     <div id="JOIN" class="p-3 text-3xl font-bold text-primary ">
       Nous rejoindre ou nous contacter
     </div>
