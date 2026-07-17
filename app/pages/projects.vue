@@ -7,8 +7,11 @@
 <template>
   <div class="min-h-[400px] flex flex-wrap justify-center items-start gap-6">
   <h1 class="w-full text-4xl font-bold text-primary p-3 text-center">
-    En Construction
+    Nos Projets
   </h1>
+  <div class="text-xl text-neutral p-3">
+    De temps en temps, nous avons des projets et des événements plus importants, qui méritent leurs propres pages :)
+  </div>
  <UPageCard
     id="NIFFF"
     class="w-full max-w-md flex-1"
