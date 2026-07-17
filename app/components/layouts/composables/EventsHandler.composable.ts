@@ -1,5 +1,4 @@
-import { CalendarDate } from '@internationalized/date'
-import {Frequency, RRule} from 'rrule'
+import { RRule } from 'rrule'
 import type { baseEvent, datedEvent } from '~/types/navigation'
 /**
  *  Behavior:
@@ -59,22 +58,6 @@ const gameOClock = {
     const recurringEvents: baseEvent[] = [
         mercrediJeu, gameOClock
     ]
-
-    // TODO : google script call
-const overrideFiles = import.meta.glob('@/assets/events/single/*.json', {
-  eager: true,
-})
-
-const overrides = Object.entries(overrideFiles).reduce(
-  (acc, [path, mod]: any) => {
-    const fileName = path.split('/').pop().replace('.json', '')
-    acc[fileName] = mod.default
-    return acc
-  },
-  {} as Record<string, any>
-)
-
-
 
 export function buildInitialCalendarIndex(start: Date, end: Date) {
   const index: Record<string, datedEvent[]> = {}

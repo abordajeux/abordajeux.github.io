@@ -49,8 +49,8 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
   const form = e.data;
   const formData = new FormData()
   Object.entries(form).forEach(([keyof, value]) =>
-  formData.append(keyof, value))
-  const { data, error: submitError } = await forminit.submit( 'ulekc1cw41t' , formData);
+  formData.append(keyof, String(value)))
+  const { error: submitError } = await forminit.submit( 'ulekc1cw41t' , formData);
 
   if (submitError) {
     status.value = 'error';
@@ -74,7 +74,7 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
       formField: {
         root: 'flex max-sm:flex-col justify-between gap-8 [&>*]:flex-1'      },
     }">
-      <UForm :schema="schema" :state="state" class="space-y-4 w-full" @submit="onSubmit" v-if="showForm">
+      <UForm v-if="showForm" :schema="schema" :state="state" class="space-y-4 w-full" @submit="onSubmit">
 
         <UFormField label="Sur quel événement souhaitez vous faire un retour ?" name="subject" >
             <UInputMenu v-model="state['fi-text-event']" :items="possibleEvents" />

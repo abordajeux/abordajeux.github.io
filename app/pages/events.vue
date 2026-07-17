@@ -75,13 +75,14 @@ function showSlide(date : DateLike) {
 <template>
   <div class="min-h-[80vh] flex flex-col items-center p-3">
 
-    <img :src="resolveImage('img_calendar.png')" />
+    <img :src="resolveImage('img_calendar.png')" >
 
     <h1 class="text-4xl font-bold text-primary p-3">
       Calendrier des événements
     </h1>
 
-    <UCalendar :year-controls="false"   :ui="{
+    <UCalendar
+:year-controls="false"   :ui="{
     root: 'text-lg p-4',
     header: 'text-xl',
     cell: 'h-12 w-12 text-base'

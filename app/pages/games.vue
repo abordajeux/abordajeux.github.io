@@ -34,9 +34,7 @@ const items = ["https://www.myludo.fr/img/jeux/1757080426/300/cp/67722.png", "ht
       <div class="text-xs">
       source des photos: MyLudo (et par conséquent, très certainement, les sites des éditeurs)
     </div>
-    <div>
-
-    </div>
+    <div/>
   </div>
 
 

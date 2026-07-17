@@ -19,13 +19,14 @@ const pirateStore = usePirateStore()
 </script>
 
 <template>
-  <UHeader :ui="{
+  <UHeader
+:ui="{
     center: 'md:flex items-center justify-center',
     body:  'w-64 max-w-full',
   }">
  <!-- Left logo -->
     <template #left>
-    <img :src="logo"/>
+    <img :src="logo">
     </template>
 
       <!-- Desktop navigation -->
@@ -39,7 +40,7 @@ const pirateStore = usePirateStore()
 
 
  <template #right>
-  <a href="/info#JOIN"> <img :src="clickMe"/></a>
+  <a href="/info#JOIN"> <img :src="clickMe"></a>
 </template>
       <template #body>
       <div class="p-4">

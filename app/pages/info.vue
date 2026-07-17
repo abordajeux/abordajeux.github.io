@@ -217,7 +217,7 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
   const formData = new FormData()
   Object.entries(form).forEach(([keyof, value]) =>
   formData.append(keyof, value))
-  const { data, error: submitError } = await forminit.submit( '7y9rmra9z9o' , formData);
+  const { error: submitError } = await forminit.submit( '7y9rmra9z9o' , formData);
 
   if (submitError) {
     status.value = 'error';
@@ -253,8 +253,7 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
         À l'heure actuelle, nos soirées régulières ont lieu à l'hôtel des associations
       </div>
 
-      <iframe src="https://map.geo.admin.ch/#/embed?lang=en&center=2561604.98,1205068.07&z=9.882&topic=ech&layers=KML|https://public.geo.admin.ch/api/kml/files/DqxEqk-0RFSxh3rtO38Z9g&bgLayer=ch.swisstopo.pixelkarte-grau&featureInfo=default&noSimpleZoom=true&hideEmbedUI" style="border: 0;width: 100%;height: 400px;max-width: 100%;max-height: 100%;" allow="geolocation"></iframe>
-    </div>
+      <iframe src="https://map.geo.admin.ch/#/embed?lang=en&noSimpleZoom&center=2557950.51,1203979.2&z=10.5&topic=ech&layers=KML%7Chttps://public.geo.admin.ch/api/kml/files/wkHDbrAvRT-2ZzReTMxQ2g&bgLayer=ch.swisstopo.pixelkarte-grau&featureInfo=default" style="border: 0;width: 100%;height: 400px;max-width: 100%;max-height: 100%;" allow="geolocation"></iframe>    </div>
 
     <div id="JOIN" class="p-3 text-3xl font-bold text-primary ">
       Nous rejoindre ou nous contacter
@@ -265,7 +264,7 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
       formField: {
         root: 'flex max-sm:flex-col justify-between gap-8 [&>*]:flex-1'      },
     }">
-      <UForm :schema="schema" :state="state" class="space-y-4 w-full" @submit="onSubmit" v-if="showForm">
+      <UForm v-if="showForm" :schema="schema" :state="state" class="space-y-4 w-full" @submit="onSubmit">
 
         <UFormField label="Pourquoi nous écrivez vous ?" name="subject" >
           <UInput v-model="state['fi-text-subject']" class="w-full"/>

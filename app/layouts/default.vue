@@ -14,7 +14,7 @@ import AppFooter from '@/components/layouts/layout_components/AppFooter.vue'
       <div class="max-w-3xl mx-auto px-4 flex flex-col h-full max-h-[80vh] overflow-auto scrollbar-style">
         <slot/>
 
-        <img :src="resolveImage('banner_abordajeux.png')" class="opacity-25 bottom-10 w-full max-w-3xl sticky -z-40"/>
+        <img :src="resolveImage('banner_abordajeux.png')" class="opacity-25 bottom-10 w-full max-w-3xl sticky -z-40">
 
       </div>
 
