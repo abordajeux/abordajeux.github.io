@@ -33,13 +33,13 @@ function buildRecurring(id: string, rrule: string, extra: Partial<RecurringEvent
   }
 }
 
-describe('date keys (TZ-pinned to Europe/Zurich)', () => {
-  it('maps a Date to a canonical YYYY-MM-DD', () => {
+describe('date keys (UTC calendar date — stable regardless of the instant time-of-day)', () => {
+  it('maps a Date to its UTC YYYY-MM-DD', () => {
     expect(toDateKey(new Date('2026-07-15T12:00:00Z'))).toBe('2026-07-15')
   })
 
-  it('respects the Zurich offset near midnight (does not flip in UTC)', () => {
-    expect(toDateKey(new Date('2026-07-15T23:00:00Z'))).toBe('2026-07-16')
+  it('does not flip near UTC midnight (rrule occurrences keep their weekday)', () => {
+    expect(toDateKey(new Date('2026-07-15T23:59:00Z'))).toBe('2026-07-15')
   })
 
   it('round-trips parseDateKey -> toDateKey', () => {
@@ -152,7 +152,9 @@ describe('loadEvents (production data)', () => {
     expect(events).toHaveLength(6)
     const jul14 = events.find(e => toDateKey(e.date) === '2026-07-14')!
     expect(jul14.title).toBe('Games O\'Clock')
-    expect(categorize(jul14)).toBe('external-open')
+    expect(jul14.cancelled).toBe(true)
+    expect(jul14.cancelReason).toContain('bar est fermé')
+    expect(categorize(jul14)).toBe('cancelled')
     const jul15 = events.find(e => toDateKey(e.date) === '2026-07-15')!
     expect(jul15.title).toBe('Soirée jeux du Mercredi')
     expect(categorize(jul15)).toBe('local-open')

@@ -5,7 +5,6 @@ import recurringRaw from '~/data/recurring.json'
 import oneOffRaw from '~/data/one-off.json'
 
 export const ASSOCIATION_LOCAL_ADDRESS = 'Rue de la gare 4, 2034 Peseux'
-const KEY_TIMEZONE = 'Europe/Zurich'
 
 export type EventCategory =
   | 'local-open'
@@ -74,14 +73,7 @@ export function parseRrule(rrule: string): RRule {
 }
 
 export function toDateKey(date: Date): string {
-  const formattedParts = new Intl.DateTimeFormat('en-CA', {
-    timeZone: KEY_TIMEZONE,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(date)
-  const partValue = (partType: string) => formattedParts.find(part => part.type === partType)?.value ?? ''
-  return `${partValue('year')}-${partValue('month')}-${partValue('day')}`
+  return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}-${String(date.getUTCDate()).padStart(2, '0')}`
 }
 
 export function parseDateKey(key: string): Date {
@@ -91,9 +83,13 @@ export function parseDateKey(key: string): Date {
 const normalizeForComparison = (value?: string) => (value ?? '').trim().toLowerCase()
 
 export function categorize(event: { location?: string, isPublic?: boolean, cancelled?: boolean }): EventCategory {
-  if (event.cancelled) return 'cancelled'
+  if (event.cancelled) {
+    return 'cancelled'
+  }
   const isLocal = normalizeForComparison(event.location) === normalizeForComparison(ASSOCIATION_LOCAL_ADDRESS)
-  if (isLocal) return event.isPublic ? 'local-open' : 'local-closed'
+  if (isLocal) {
+    return event.isPublic ? 'local-open' : 'local-closed'
+  }
   return event.isPublic ? 'external-open' : 'external-closed'
 }
 
@@ -106,9 +102,10 @@ const CATEGORY_PRIORITY: Record<EventCategory, number> = {
   'cancelled': 5,
 }
 
-//@agent as a general rule, I find if() {return ...} to be more clear. please use brackets around return statements from ifs, and enforce this.
 export function topCategory(events: CalendarEvent[]): EventCategory | undefined {
-  if (events.length === 0) return undefined
+  if (events.length === 0) {
+    return undefined
+  }
   return events
     .map(categorize)
     .sort((first, second) => CATEGORY_PRIORITY[first] - CATEGORY_PRIORITY[second])[0]
@@ -156,9 +153,13 @@ export function mergeEvents(
 
   for (const oneOff of oneOffs) {
     const key = `${oneOff.id}|${oneOff.date}`
-    if (matchedKeys.has(key)) continue
-    const { id, date, cancelled, cancelReason, ...rest } = oneOff
-    events.push({ ...rest, id, date: parseDateKey(date) } as CalendarEvent)
+    if (!matchedKeys.has(key)) {
+      const occurrenceDate = parseDateKey(oneOff.date)
+      if (occurrenceDate >= windowStart && occurrenceDate <= windowEnd) {
+        const { id, date, cancelled, cancelReason, ...rest } = oneOff
+        events.push({ ...rest, id, date: occurrenceDate } as CalendarEvent)
+      }
+    }
   }
 
   return events

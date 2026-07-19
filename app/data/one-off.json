@@ -1,3 +1,16 @@
 {
-  "events": []
+  "events": [
+    {
+      "id": "beer",
+      "date": "2026-07-14",
+      "cancelled": true,
+      "cancelReason": "Le bar est fermé, et nous n'avons pas l'intention de crocheter la serrure."
+    },
+    {
+      "id": "beer",
+      "date": "2026-08-11",
+      "cancelled": true,
+      "cancelReason": "Le bar est fermé, et nous n'avons pas l'intention de crocheter la serrure."
+    }
+  ]
 }
