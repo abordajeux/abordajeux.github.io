@@ -97,7 +97,7 @@ const slideover = overlay.create(EventSlideOver)
 
 async function  openPanel(activity: datedEvent) {
   const instance = slideover.open({
-    activity
+    activities: [activity]
   })
 
   await instance.result

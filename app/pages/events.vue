@@ -45,12 +45,12 @@ function categoryForDay(day: CalendarDay): EventCategory | undefined {
 function showSlide(day: CalendarDay) {
   const dayEvents = getEventsByDate(events, dayToKey(day))
   if (dayEvents.length > 0) {
-    openEvent(dayEvents[0]!)
+    openEvent(dayEvents)
   }
 }
 
-async function openEvent(activity: AppCalendarEvent) {
-  const instance = slideOver.open({ activity })
+async function openEvent(dayEvents: AppCalendarEvent[]) {
+  const instance = slideOver.open({ activities: dayEvents })
   await instance.result
 }
 
