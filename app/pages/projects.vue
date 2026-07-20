@@ -20,7 +20,7 @@
     icon="i-lucide-skull"
     to="/nifff"
   >
-    <img :src="resolveImage('nifff_affiche_semaine.jpeg')" class="max-h-100 w-auto">
+    <img :src="resolveImage('nifff/2026/nifff_affiche_semaine.jpeg')" class="max-h-100 w-auto">
   </UPageCard>
 
   <UPageCard

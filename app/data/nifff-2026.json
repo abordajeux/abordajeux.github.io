@@ -1,0 +1,116 @@
+{
+  "year_copyright": "Sauf mention contraire, © Édition 2026 — À L'Abordajeux",
+  "events": [
+    {
+      "id": "nifff-everyday",
+      "date": "2026-07-04",
+      "hours": ["13:00", "19:00"],
+      "title": "Jeux de sociétés",
+      "pre_img_description": [
+        "Une sélection de jeux de sociétés basés sur les thématiques du NIFFF sont mis à disposition.",
+        "N'hésitez pas à demander à nos bénévoles de vous expliquer les règles de ceux qui vous intéressent."
+      ],
+      "post_img_description": [
+        "Il est possible que sur certaines tranches horaires, il n'y ait pas de bénévoles, mais les jeux restent en libre accès."
+      ],
+      "cardDescription": "Une sélection de jeux de sociétés basés sur les thématiques du NIFFF sont mis à disposition et il y a en général des volontaires pour en expliquer les règles.",
+      "image_path": "nifff/2026/nifff_affiche_semaine.jpeg",
+      "organizer": "L'ABORDAJEUX",
+      "isPublic": true,
+      "prices": {},
+      "external_link": [
+        "https://nifff.ch/prog/2026/event/jeux-de-societe/",
+        "Voir sur le site du NIFFF",
+        "i-lucide-notebook-pen",
+        "_blank"
+      ]
+    },
+    {
+      "id": "nifff-saturday",
+      "date": "2026-07-04",
+      "hours": ["15:00", "18:00"],
+      "title": "Le Bastion de Gaïa",
+      "pre_img_description": [
+        "Des combattant·te·x·s d'élite du règne animal ont été choisi·e·x·s par Gaïa pour concevoir un système capable de freiner l'expansion humaine et protéger les non-humains."
+      ],
+      "post_img_description": [],
+      "cardDescription": "Des combattant·te·x·s d'élite du règne animal ont été choisi·e·x·s par Gaïa pour concevoir un système capable de freiner l'expansion humaine et protéger les non-humains.",
+      "image_path": "nifff/2026/nifff_affiche_samedi.jpeg",
+      "organizer": "Jilian",
+      "isPublic": true,
+      "prices": {},
+      "external_link": [
+        "https://nifff.ch/prog/2026/event/jeu-de-role-le-bastion-de-gaia/",
+        "S'inscrire sur le site du NIFFF",
+        "i-lucide-notebook-pen",
+        "_blank"
+      ]
+    },
+    {
+      "id": "nifff-sunday",
+      "date": "2026-07-05",
+      "hours": ["14:00", "18:00"],
+      "title": "Mission Archéo",
+      "pre_img_description": [
+        "L'équipe archéologique de la porte de Baldur recherche un petit groupe d'aventuriers pour une première exploration."
+      ],
+      "post_img_description": [],
+      "cardDescription": "L'équipe archéologique de la porte de Baldur recherche un petit groupe d'aventuriers pour une première exploration.",
+      "image_copyright": ["© Affiche par Serasuu", "https://www.instagram.com/serasuwu"],
+      "image_path": "nifff/2026/nifff_affiche_dimanche.jpeg",
+      "organizer": "Noah",
+      "isPublic": true,
+      "prices": {},
+      "external_link": [
+        "https://nifff.ch/prog/2026/event/jeu-de-role-mission-archeo/",
+        "S'inscrire sur le site du NIFFF",
+        "i-lucide-notebook-pen",
+        "_blank"
+      ]
+    },
+    {
+      "id": "nifff-monday",
+      "date": "2026-07-06",
+      "hours": ["15:00", "19:00"],
+      "title": "Je ne suis déjà mort",
+      "pre_img_description": [
+        "Des enquêteur·rice·x·s découvrent qu'une technologie futuriste ne transfère peut-être pas réellement la conscience humaine, mais crée simplement des copies parfaites des individus."
+      ],
+      "post_img_description": [],
+      "cardDescription": "Des enquêteur·rice·x·s découvrent qu'une technologie futuriste ne transfère peut-être pas réellement la conscience humaine, mais crée simplement des copies parfaites des individus.",
+      "image_path": "nifff/2026/nifff_affiche_lundi.jpeg",
+      "organizer": "Pierre",
+      "isPublic": true,
+      "prices": {},
+      "external_link": [
+        "https://nifff.ch/prog/2026/event/jeux-de-societe/",
+        "S'inscrire sur le site du NIFFF",
+        "i-lucide-notebook-pen",
+        "_blank"
+      ]
+    },
+    {
+      "id": "nifff-thursday",
+      "date": "2026-07-09",
+      "hours": ["14:00", "16:00"],
+      "title": "Loups Garous: un reste d'humanité",
+      "pre_img_description": [
+        "La notion de perte de son identité, de perdre le contrôle, est au coeur de la thématique du loup garou. Nous vous proposons de la revisiter sous un angle plus futuriste."
+      ],
+      "post_img_description": [
+        "Ce qui est un bon paquet de blabla pour dire qu'on va appliquer un thème sur le loup garou, hein :)"
+      ],
+      "cardDescription": "La notion de perte de son identité, de perdre le contrôle, est au coeur de la thématique du loup garou. Nous vous proposons de la revisiter sous un angle plus futuriste.",
+      "image_path": "nifff/2026/nifff_affiche_jeudi.png",
+      "organizer": "L'ABORDAJEUX",
+      "isPublic": true,
+      "prices": {},
+      "external_link": [
+        "https://nifff.ch/prog/2026/event/loup-garou-geant/",
+        "S'inscrire sur le site du NIFFF",
+        "i-lucide-notebook-pen",
+        "_blank"
+      ]
+    }
+  ]
+}
