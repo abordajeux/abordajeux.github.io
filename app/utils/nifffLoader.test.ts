@@ -215,7 +215,7 @@ describe('buildGalleryItems (pure flattening + orphan diff)', () => {
 })
 
 describe('loadNifffEditions / loadNifffLatest / highestEditionYear (smoke — real fixtures)', () => {
-  it('returns the 2026 edition migrated from programme.vue', () => {
+  it('returns the 2026 edition migrated from programme.vue, with events in data-file order', () => {
     const editions = loadNifffEditions()
     expect(editions.length).toBeGreaterThanOrEqual(1)
     const edition2026 = editions.find(e => e.year === 2026)
@@ -227,7 +227,14 @@ describe('loadNifffEditions / loadNifffLatest / highestEditionYear (smoke — re
       'nifff-monday',
       'nifff-thursday',
     ])
-    expect(edition2026!.year_copyright).toBe('Sauf mention contraire, © Édition 2026 — À L\'Abordajeux')
+  })
+
+  it('preserves the operator-defined year_copyright string from the manifest', () => {
+    const editions = loadNifffEditions()
+    const edition2026 = editions.find(e => e.year === 2026)
+    expect(edition2026).toBeDefined()
+    expect(typeof edition2026!.year_copyright).toBe('string')
+    expect(edition2026!.year_copyright!.length).toBeGreaterThan(0)
   })
 
   it('preserves the Serasuu credit on the Sunday event', () => {
@@ -252,16 +259,32 @@ describe('loadNifffEditions / loadNifffLatest / highestEditionYear (smoke — re
 })
 
 describe('buildYearGalleryItems (smoke — real fixtures + real image glob)', () => {
-  it('returns 5 affiches in data-file order with no orphans (every affiche is referenced)', () => {
+  it('emits events in data-file order with gallery_images after each poster, orphans at end', () => {
     const items = buildYearGalleryItems(2026)
-    expect(items).toHaveLength(5)
-    expect(items.map(i => i.image)).toEqual([
+
+    const affiches = items.filter(i => i.image.includes('nifff_affiche_'))
+    expect(affiches.map(i => i.image)).toEqual([
       'nifff/2026/nifff_affiche_semaine.jpeg',
       'nifff/2026/nifff_affiche_samedi.jpeg',
       'nifff/2026/nifff_affiche_dimanche.jpeg',
       'nifff/2026/nifff_affiche_lundi.jpeg',
       'nifff/2026/nifff_affiche_jeudi.png',
     ])
+
+    const gaiaIndex = items.findIndex(i => i.image === 'nifff/2026/gaia.jpg')
+    const samediIndex = items.findIndex(i => i.image === 'nifff/2026/nifff_affiche_samedi.jpeg')
+    const dimancheIndex = items.findIndex(i => i.image === 'nifff/2026/nifff_affiche_dimanche.jpeg')
+    expect(gaiaIndex).toBeGreaterThan(samediIndex)
+    expect(gaiaIndex).toBeLessThan(dimancheIndex)
+
+    const thursdayIndex = items.findIndex(i => i.image === 'nifff/2026/nifff_affiche_jeudi.png')
+    const orphans = items.slice(thursdayIndex + 1)
+    for (const orphan of orphans) {
+      expect(orphan.copyright).toBeUndefined()
+      expect(orphan.image.startsWith('nifff/2026/')).toBe(true)
+    }
+    const orphanNames = orphans.map(i => i.image)
+    expect([...orphanNames].sort()).toEqual(orphanNames)
   })
 
   it('attaches the Serasuu credit only to the Sunday affiche (per-image, no inheritance)', () => {

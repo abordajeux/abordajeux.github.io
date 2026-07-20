@@ -11,6 +11,36 @@ const galleryImageSchema = v.union([
   }),
 ])
 
+export type NifffGalleryImageEntry = string | { file: string, copyright?: [string, string] }
+
+export interface NifffEditionEvent {
+  id: string
+  title: string
+  date?: string
+  hours: string[]
+  image_path: string
+  cardDescription: string
+  image_copyright?: [string, string]
+  gallery_images?: NifffGalleryImageEntry[]
+  pre_img_description?: string[]
+  post_img_description?: string[]
+  organizer?: string
+  isPublic: boolean
+  prices: Record<string, number>
+  external_link?: string[]
+}
+
+export interface NifffEdition {
+  year: number
+  year_copyright?: string
+  events: NifffEditionEvent[]
+}
+
+export interface NifffGalleryItem {
+  image: string
+  copyright?: [string, string]
+}
+
 const editionEventSchema = v.object({
   id: v.string(),
   title: v.string(),
@@ -33,16 +63,7 @@ const editionFileSchema = v.object({
   events: v.array(editionEventSchema),
 })
 
-export type NifffEditionEvent = v.InferOutput<typeof editionEventSchema>
-export type NifffEdition = {
-  year: number
-  year_copyright?: string
-  events: NifffEditionEvent[]
-}
-export type NifffGalleryItem = {
-  image: string
-  copyright?: [string, string]
-}
+type EditionFile = { year_copyright?: string, events: NifffEditionEvent[] }
 
 const EDITION_FILENAME = /nifff-(\d{4})\.json$/
 
@@ -52,7 +73,7 @@ export function parseEditionsFromGlob(files: Record<string, unknown>): NifffEdit
     const match = path.match(EDITION_FILENAME)
     if (match) {
       const year = Number(match[1])
-      const parsed = v.parse(editionFileSchema, raw)
+      const parsed = v.parse(editionFileSchema, raw) as EditionFile
       editions.push({ year, year_copyright: parsed.year_copyright, events: parsed.events })
     }
 
@@ -67,7 +88,8 @@ export function loadNifffEditions(): NifffEdition[] {
 }
 
 export function loadNifffLatest(): NifffEditionEvent[] {
-  return v.parse(editionFileSchema, latestRaw).events
+  const parsed = v.parse(editionFileSchema, latestRaw) as EditionFile
+  return parsed.events
 }
 
 export function highestEditionYear(): number | undefined {
@@ -76,7 +98,7 @@ export function highestEditionYear(): number | undefined {
 
 type NormalizedGalleryImage = { file: string, copyright?: [string, string] }
 
-function normalizeGalleryImage(entry: string | { file: string, copyright?: [string, string] }): NormalizedGalleryImage {
+function normalizeGalleryImage(entry: NifffGalleryImageEntry): NormalizedGalleryImage {
   return typeof entry === 'string' ? { file: entry } : { file: entry.file, copyright: entry.copyright }
 }
 

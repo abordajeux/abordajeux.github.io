@@ -15,7 +15,7 @@
  <UPageCard
     id="NIFFF"
     class="w-full max-w-md flex-1"
-    title="Collaboration avec le NIFFF - 2026"
+    title="Collaboration avec le NIFFF"
     description="L'abordajeux collabore avec le NIFFF, proposant des jeux de sociétés et des jeux de rôles en rapport avec les thèmes du festival."
     icon="i-lucide-skull"
     to="/nifff"

@@ -1,5 +1,5 @@
 {
-  "year_copyright": "Sauf mention contraire, © Édition 2026 — À L'Abordajeux",
+  "year_copyright": "Sauf mention contraire, © À L'Abordajeux",
   "events": [
     {
       "id": "nifff-everyday",
@@ -39,6 +39,7 @@
       "organizer": "Jilian",
       "isPublic": true,
       "prices": {},
+      "gallery_images": ["nifff/2026/gaia.jpg"],
       "external_link": [
         "https://nifff.ch/prog/2026/event/jeu-de-role-le-bastion-de-gaia/",
         "S'inscrire sur le site du NIFFF",
