@@ -6,9 +6,12 @@ import type { CalendarEvent as AppCalendarEvent, EventCategory } from '~/utils/e
 
 const overlay = useOverlay()
 const slideOver = overlay.create(EventSlideOver)
+const toast = useToast()
 
 const [windowStart, windowEnd] = rollingWindow()
-const events = loadEvents(windowStart, windowEnd)
+const events = loadEvents(windowStart, windowEnd, (message) => {
+  toast.add({ title: 'Événement ignoré', description: message, color: 'warning' })
+})
 
 const minValue = new CalendarDate(windowStart.getFullYear(), windowStart.getMonth() + 1, windowStart.getDate())
 const maxValue = new CalendarDate(windowEnd.getFullYear(), windowEnd.getMonth() + 1, windowEnd.getDate())

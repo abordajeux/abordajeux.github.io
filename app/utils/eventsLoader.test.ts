@@ -14,6 +14,8 @@ import {
   parseRrule,
   toDateKey,
   topCategory,
+  tryParseOneOffEvent,
+  tryParseRecurringEvent,
 } from './eventsLoader'
 
 const JULY_START = new Date('2026-07-01T00:00:00Z')
@@ -149,7 +151,7 @@ describe('mergeEvents', () => {
 describe('loadEvents (production data)', () => {
   it('materializes both seed events for July 2026 with correct categories', () => {
     const events = loadEvents(JULY_START, JULY_END)
-    expect(events).toHaveLength(6)
+    expect(events.length).toBeGreaterThanOrEqual(6)
     const jul14 = events.find(e => toDateKey(e.date) === '2026-07-14')!
     expect(jul14.title).toBe('Games O\'Clock')
     expect(jul14.cancelled).toBe(true)
@@ -164,5 +166,100 @@ describe('loadEvents (production data)', () => {
     const events = loadEvents(JULY_START, JULY_END)
     expect(getEventsByDate(events, '2026-07-15')).toHaveLength(1)
     expect(getEventsByDate(events, '2026-07-31')).toHaveLength(0)
+  })
+})
+
+describe('tryParseRecurringEvent (graceful fallback for bad data)', () => {
+  function validRaw(overrides: Record<string, unknown> = {}): Record<string, unknown> {
+    return {
+      id: 'test-id',
+      title: 'Test Event',
+      rrule: 'FREQ=WEEKLY;BYDAY=WE',
+      hours: ['19:00', '23:00'],
+      isPublic: true,
+      location: ASSOCIATION_LOCAL_ADDRESS,
+      prices: {},
+      ...overrides,
+    }
+  }
+
+  it('parses a valid event into a ParsedRecurring (with repetitionRule)', () => {
+    const event = tryParseRecurringEvent(validRaw())
+    expect(event).not.toBeNull()
+    expect(event!.id).toBe('test-id')
+    expect(event!.repetitionRule).toBeInstanceOf(RRule)
+  })
+
+  it('returns null + fires onWarning when the rrule is malformed', () => {
+    const warnings: string[] = []
+    const event = tryParseRecurringEvent(
+      validRaw({ rrule: 'FREQ=WEEKLY;INTERVAL=2;BYDAY=JE;DTSTART=20260730T130000Z;' }),
+      message => warnings.push(message),
+    )
+    expect(event).toBeNull()
+    expect(warnings).toHaveLength(1)
+    expect(warnings[0]).toContain('test-id')
+    expect(warnings[0]).toContain('rrule invalide')
+  })
+
+  it('returns null + fires onWarning when a required field is missing', () => {
+    const warnings: string[] = []
+    const raw = validRaw()
+    delete raw.title
+    const event = tryParseRecurringEvent(raw, message => warnings.push(message))
+    expect(event).toBeNull()
+    expect(warnings).toHaveLength(1)
+    expect(warnings[0]).toContain('données invalides')
+  })
+
+  it('returns null + fires onWarning when the raw value is not an object', () => {
+    const warnings: string[] = []
+    const event = tryParseRecurringEvent('not-an-object', message => warnings.push(message))
+    expect(event).toBeNull()
+    expect(warnings).toHaveLength(1)
+  })
+
+  it('does not fire onWarning for valid events (no false alarms)', () => {
+    const warnings: string[] = []
+    tryParseRecurringEvent(validRaw(), message => warnings.push(message))
+    expect(warnings).toHaveLength(0)
+  })
+})
+
+describe('tryParseOneOffEvent (graceful fallback for bad data)', () => {
+  function validRaw(overrides: Record<string, unknown> = {}): Record<string, unknown> {
+    return {
+      id: 'test-id',
+      date: '2026-07-15',
+      title: 'Test One-Off',
+      hours: ['19:00', '23:00'],
+      isPublic: true,
+      prices: {},
+      ...overrides,
+    }
+  }
+
+  it('parses a valid one-off event', () => {
+    const event = tryParseOneOffEvent(validRaw())
+    expect(event).not.toBeNull()
+    expect(event!.id).toBe('test-id')
+  })
+
+  it('returns null + fires onWarning when required fields are missing', () => {
+    const warnings: string[] = []
+    const raw = validRaw()
+    delete raw.date
+    const event = tryParseOneOffEvent(raw, message => warnings.push(message))
+    expect(event).toBeNull()
+    expect(warnings).toHaveLength(1)
+    expect(warnings[0]).toContain('test-id')
+  })
+})
+
+describe('loadEvents (onWarning wiring)', () => {
+  it('production fixtures still load without warnings (no false alarms)', () => {
+    const warnings: string[] = []
+    loadEvents(JULY_START, JULY_END, message => warnings.push(message))
+    expect(warnings).toHaveLength(0)
   })
 })

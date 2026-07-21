@@ -175,11 +175,58 @@ export function rollingWindow(now: Date = new Date(), backMonths = 2, forwardMon
   return [start, end]
 }
 
-export function loadEvents(windowStart: Date, windowEnd: Date): CalendarEvent[] {
-  const recurringFile = v.parse(v.object({ events: v.array(recurringSchema) }), recurringRaw)
-  const oneOffFile = v.parse(v.object({ events: v.array(oneOffSchema) }), oneOffRaw)
-  const parsedRecurring: ParsedRecurring[] = recurringFile.events.map(event => ({ ...event, repetitionRule: parseRrule(event.rrule) }))
-  return mergeEvents(parsedRecurring, oneOffFile.events, windowStart, windowEnd)
+export function loadEvents(
+  windowStart: Date,
+  windowEnd: Date,
+  onWarning?: (message: string) => void,
+): CalendarEvent[] {
+  const recurringFile = v.parse(v.object({ events: v.array(v.unknown()) }), recurringRaw)
+  const oneOffFile = v.parse(v.object({ events: v.array(v.unknown()) }), oneOffRaw)
+  const parsedRecurring = recurringFile.events
+    .map(raw => tryParseRecurringEvent(raw, onWarning))
+    .filter((event): event is ParsedRecurring => event !== null)
+  const validOneOffs = oneOffFile.events
+    .map(raw => tryParseOneOffEvent(raw, onWarning))
+    .filter((event): event is OneOffEvent => event !== null)
+  return mergeEvents(parsedRecurring, validOneOffs, windowStart, windowEnd)
+}
+
+export function tryParseRecurringEvent(
+  raw: unknown,
+  onWarning?: (message: string) => void,
+): ParsedRecurring | null {
+  const result = v.safeParse(recurringSchema, raw)
+  if (!result.success) {
+    onWarning?.(`Événement récurrent "${readField(raw, 'title')}" (${readField(raw, 'id')}): données invalides — ${result.issues.map(issue => issue.message).join(', ')}`)
+    return null
+  }
+  try {
+    return { ...result.output, repetitionRule: parseRrule(result.output.rrule) }
+  }
+  catch (error) {
+    onWarning?.(`Événement récurrent "${result.output.title}" (${result.output.id}): rrule invalide "${result.output.rrule}" — ${(error as Error).message}`)
+    return null
+  }
+}
+
+export function tryParseOneOffEvent(
+  raw: unknown,
+  onWarning?: (message: string) => void,
+): OneOffEvent | null {
+  const result = v.safeParse(oneOffSchema, raw)
+  if (!result.success) {
+    onWarning?.(`Événement ponctuel (${readField(raw, 'id')}): données invalides — ${result.issues.map(issue => issue.message).join(', ')}`)
+    return null
+  }
+  return result.output
+}
+
+function readField(raw: unknown, field: string): string {
+  if (typeof raw === 'object' && raw !== null && field in raw) {
+    const value = (raw as Record<string, unknown>)[field]
+    return typeof value === 'string' ? value : '<unknown>'
+  }
+  return '<unknown>'
 }
 
 export function getEventsByDate(events: CalendarEvent[], key: string): CalendarEvent[] {
