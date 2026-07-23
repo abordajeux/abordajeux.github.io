@@ -230,5 +230,7 @@ function readField(raw: unknown, field: string): string {
 }
 
 export function getEventsByDate(events: CalendarEvent[], key: string): CalendarEvent[] {
-  return events.filter(event => toDateKey(event.date) === key)
+  return events
+    .filter(event => toDateKey(event.date) === key)
+    .sort((first, second) => (first.hours[0] ?? '').localeCompare(second.hours[0] ?? ''))
 }

@@ -2,6 +2,7 @@ const imageModules = import.meta.glob<string>(
   [
     '../assets/images/*.{jpg,jpeg,png,webp,avif,gif,svg}',
     '../assets/images/nifff/**/*.{jpg,jpeg,png,webp,avif,gif,svg}',
+    '../assets/images/games-carousel/**/*.{jpg,jpeg,png,webp,avif,gif,svg}',
   ],
   { eager: true, import: 'default' },
 )
@@ -28,7 +29,8 @@ export function resolveImage(src: string | undefined) {
     return ''
   }
 
-  return imageByKey.get(src) ?? ''
+  const key = src.replace(/^\//, '')
+  return imageByKey.get(key) ?? ''
 }
 
 export function resolveFile(src: string | undefined) {

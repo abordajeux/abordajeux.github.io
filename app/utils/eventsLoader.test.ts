@@ -167,6 +167,16 @@ describe('loadEvents (production data)', () => {
     expect(getEventsByDate(events, '2026-07-15')).toHaveLength(1)
     expect(getEventsByDate(events, '2026-07-31')).toHaveLength(0)
   })
+
+  it('getEventsByDate sorts same-day events by start time (earliest first)', () => {
+    const events = [
+      { hours: ['19:00', '23:00'], date: parseDateKey('2026-07-15') },
+      { hours: ['14:00', '18:00'], date: parseDateKey('2026-07-15') },
+      { hours: ['10:00', '12:00'], date: parseDateKey('2026-07-15') },
+    ] as CalendarEvent[]
+    const dayEvents = getEventsByDate(events, '2026-07-15')
+    expect(dayEvents.map(e => e.hours[0])).toEqual(['10:00', '14:00', '19:00'])
+  })
 })
 
 describe('tryParseRecurringEvent (graceful fallback for bad data)', () => {

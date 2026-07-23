@@ -44,24 +44,83 @@
       "prices": {}
     },
     {
-  "id": "biweekly-event-johey-jdr",
-  "title": "Le Jeu de Rôle de Johey",
-  "rrule": "FREQ=WEEKLY;INTERVAL=2;BYDAY=TH;DTSTART=20260730T130000Z",
-  "hours": ["19:00", "23:00"],
-  "isPublic": false,
-  "location": "Rue de la gare 4, 2034 Peseux",
-  "coordinates": "2557931.93, 1203977.98",
-  "image_path": "placeholder.png",
-        "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
-
-  "pre_img_description": [
-    "Une aventure épique attend des types sympas qui se réunissent toutes les deux semaines.",
-    "Si si, je vous promets qu'ils s'amusent."
-  ],
-  "post_img_description": [
-    "De nouvelles tables de jeu de rôle s'ouvrent parfois, demandez nous :3"
-  ],
-  "prices": {}
-}
+      "id": "biweekly-event-joey-jdr",
+      "title": "Le Jeu de Rôle de Joey",
+      "rrule": "FREQ=WEEKLY;INTERVAL=2;BYDAY=TH;DTSTART=20260730T130000Z",
+      "hours": ["19:00", "23:00"],
+      "isPublic": false,
+      "location": "Rue de la gare 4, 2034 Peseux",
+      "coordinates": "2557931.93, 1203977.98",
+      "image_path": "placeholder.png",
+      "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
+      "pre_img_description": [
+        "Une aventure épique attend des types sympas qui se réunissent toutes les deux semaines.",
+        "Si si, je vous promets qu'ils s'amusent."
+      ],
+      "post_img_description": [
+        "De nouvelles tables de jeu de rôle s'ouvrent parfois, demandez nous :3"
+      ],
+      "prices": {}
+    },
+    {
+      "id": "biweekly-jilian-jdr",
+      "title": "Jeu de rôle de Jilian ( Warhammer - Complet )",
+      "rrule": "FREQ=WEEKLY;INTERVAL=2;BYDAY=TU;DTSTART=20260811T120000Z",
+      "hours": ["19:00", "23:00"],
+      "isPublic": false,
+      "location": "Rue de la gare 4, 2034 Peseux",
+      "coordinates": "2557931.93, 1203977.98",
+      "image_path": "placeholder.png",
+      "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
+      "pre_img_description": [
+        "Une campagne de jeu de rôle menée par Jilian. Texte à compléter."
+      ],
+      "post_img_description": [
+        "De nouvelles tables de jeu de rôle s'ouvrent parfois, demandez nous :3"
+      ],
+      "prices": {}
+    },
+    {
+      "id": "apres-midi-jeu",
+      "title": "Après-Midi Jeu",
+      "rrule": "FREQ=MONTHLY;BYDAY=1SU;DTSTART=20260802T120000Z",
+      "hours": ["11:00", "19:00"],
+      "isPublic": true,
+      "location": "Rue de la gare 4, 2034 Peseux",
+      "coordinates": "2557931.93, 1203977.98",
+      "image_path": "",
+      "pre_img_description": [
+        "Un après-midi tout en douceur, en petit comité, pour jouer tranquillement."
+      ],
+      "prices": {}
+    },
+    {
+      "id": "soiree-gros-jeux",
+      "title": "Soirée Gros Jeux",
+      "rrule": "FREQ=WEEKLY;INTERVAL=2;BYDAY=FR;DTSTART=20260807T120000Z",
+      "hours": ["19:00", "23:00"],
+      "isPublic": true,
+      "location": "Rue de la gare 4, 2034 Peseux",
+      "coordinates": "2557931.93, 1203977.98",
+      "image_path": "",
+      "pre_img_description": [
+        "Une soirée dédiée aux jeux longs, complexes, ou à ceux qu'on n'a pas le temps de finir autrement."
+      ],
+      "prices": {}
+    },
+    {
+      "id": "evenement-membre",
+      "title": "Événement Organisé par un Membre",
+      "rrule": "FREQ=MONTHLY;BYDAY=3SA;DTSTART=20260801T120000Z",
+      "hours": ["10:00", "20:00"],
+      "isPublic": true,
+      "location": "Rue de la gare 4, 2034 Peseux",
+      "coordinates": "2557931.93, 1203977.98",
+      "image_path": "",
+      "pre_img_description": [
+        "Un événement pensé et organisé par un de nos membres. Détails à venir."
+      ],
+      "prices": {}
+    }
   ]
 }

@@ -11,6 +11,34 @@
       "date": "2026-08-11",
       "cancelled": true,
       "cancelReason": "Le bar est fermé, et nous n'avons pas l'intention de crocheter la serrure."
+    },
+    {
+      "id": "pendaison-cremaillere-2026",
+      "date": "2026-08-12",
+      "title": "Pendaison de Crémaillère",
+      "hours": ["13:00", "19:00"],
+      "isPublic": true,
+      "location": "Rue de la gare 4, 2034 Peseux",
+      "coordinates": "2557931.93, 1203977.98",
+      "image_path": "",
+      "pre_img_description": [
+        "Venez fêter l'ouverture de notre nouveau local !"
+      ],
+      "prices": {}
+    },
+    {
+      "id": "portes-ouvertes-2026",
+      "date": "2026-09-12",
+      "title": "Portes Ouvertes",
+      "hours": ["10:00", "23:00"],
+      "isPublic": true,
+      "location": "Rue de la gare 4, 2034 Peseux",
+      "coordinates": "2557931.93, 1203977.98",
+      "image_path": "",
+      "pre_img_description": [
+        "Venez découvrir l'association et nos jeux !"
+      ],
+      "prices": {}
     }
   ]
 }
