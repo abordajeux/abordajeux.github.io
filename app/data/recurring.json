@@ -85,13 +85,20 @@
       "title": "Après-Midi Jeu",
       "rrule": "FREQ=MONTHLY;BYDAY=1SU;DTSTART=20260802T120000Z",
       "hours": ["11:00", "19:00"],
-      "isPublic": true,
+      "isPublic": false,
       "location": "Rue de la gare 4, 2034 Peseux",
       "coordinates": "2557931.93, 1203977.98",
-      "image_path": "",
-      "pre_img_description": [
-        "Un après-midi tout en douceur, en petit comité, pour jouer tranquillement."
-      ],
+      "image_path": "placeholder.png",
+      "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
+      "pre_img_description": ["Un après midi tout en douceur, pour ceux qui souhaitent prendre le temps de jouer loin du rythme effrenné de la semaine."
+
+,"Au programme, comme presque toujours, une sélection de jeux proposés par des membres ou l'association."
+],
+
+      "post_img_description": [
+"En général la présidente amène des gateaux et des cookies, mais nous ne sommes pas légalement forcé de les fournir."
+
+,"Vous aurez le droit de râler s'il n'y en a pas."      ],
       "prices": {}
     },
     {
@@ -102,23 +109,39 @@
       "isPublic": true,
       "location": "Rue de la gare 4, 2034 Peseux",
       "coordinates": "2557931.93, 1203977.98",
-      "image_path": "",
+            "image_path": "placeholder.png",
+      "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
       "pre_img_description": [
-        "Une soirée dédiée aux jeux longs, complexes, ou à ceux qu'on n'a pas le temps de finir autrement."
-      ],
-      "prices": {}
+"Une soirée où nous vous proposons des jeux plus costauds, aux règles plus complexes, aux méchaniques plus poussées."
+,"Parce que quitte à avoir mal à la tête le lendemain matin, autant ne pas travailler."
+
+],
+
+      "post_img_description": [
+"Si les jeux proposés sont un peu plus complexes, nos tables libres restent ouvertes à n'importe quel jeu.", "Promis, on vous regardera même pas de travers."
+],
+      "prices": {
+        "Non-membres, première visite": 5,
+        "Non-membres, visites ultérieures": 20,
+        "Membres": 0
+      }
     },
     {
       "id": "evenement-membre",
       "title": "Événement Organisé par un Membre",
       "rrule": "FREQ=MONTHLY;BYDAY=3SA;DTSTART=20260801T120000Z",
       "hours": ["10:00", "20:00"],
-      "isPublic": true,
+      "isPublic": false,
       "location": "Rue de la gare 4, 2034 Peseux",
       "coordinates": "2557931.93, 1203977.98",
-      "image_path": "",
+      "image_path": "placeholder.png",
+      "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
       "pre_img_description": [
-        "Un événement pensé et organisé par un de nos membres. Détails à venir."
+        "Une fois par mois, nous laissons la parole à l'un de nos membres pour organiser un petit événement ludique autour d'un thème qui lui tient à coeur.",
+        "Qu'il s'agisse d'une esthétique, d'un auteur, d'une mécanique ou plus simplement de l'envie de faire un petit tournoi, ces samedis sont l'occasion pour nos membres de partager leur passion de la façon de leur choix."
+      ],
+      "post_img_description": [
+        "Plus d'informations sur l'organisateur et sa thématique lorsque nous aurons les détails."
       ],
       "prices": {}
     }

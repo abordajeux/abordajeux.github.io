@@ -1,6 +1,13 @@
 {
   "events": [
     {
+      "id": "mercredi-soir",
+      "date": "2026-08-12",
+      "cancelled": true,
+      "cancelReason": "C'est notre pendaison de Crémaillère, rentrez chez vous les aimables visiteurs (on me censure) :3"
+
+    },
+    {
       "id": "beer",
       "date": "2026-07-14",
       "cancelled": true,
@@ -16,15 +23,21 @@
       "id": "pendaison-cremaillere-2026",
       "date": "2026-08-12",
       "title": "Pendaison de Crémaillère",
-      "hours": ["13:00", "19:00"],
-      "isPublic": true,
+      "hours": ["13:00", "23:00"],
+      "isPublic": false,
       "location": "Rue de la gare 4, 2034 Peseux",
       "coordinates": "2557931.93, 1203977.98",
-      "image_path": "",
+      "image_path": "placeholder.png",
+      "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
       "pre_img_description": [
-        "Venez fêter l'ouverture de notre nouveau local !"
+        "Nous voulions un local, nous l'avons. et nous allons fêter ça en l'ouvrant toute la journée aux membres.",
+        "Nous allons proposer des activités, manger des gâteaux, et marquer un nouveau départ symbolique pour l'association."
       ],
-      "prices": {}
+      "post_img_description": [
+        "Durant la journée, nous annoncerons aussi officiellement les activités futures de l'association vis à vis du local, et vous aurez droit à un discours inspirant de notre présidente."
+      ],
+      "prices": {
+      }
     },
     {
       "id": "portes-ouvertes-2026",
@@ -34,11 +47,20 @@
       "isPublic": true,
       "location": "Rue de la gare 4, 2034 Peseux",
       "coordinates": "2557931.93, 1203977.98",
-      "image_path": "",
+      "image_path": "placeholder.png",
+      "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
       "pre_img_description": [
-        "Venez découvrir l'association et nos jeux !"
+        "Vous vous êtes toujours demandé si l'association À L'ABORDAJEUX pouvait vous plaire, mais sans jamais oser nous envoyer un petit message ou coup de téléphone ?",
+        "Vous aimez les jeux, mais vous êtes éthiquement opposés à l'idée de donner une petite participation financière pour voir si l'association est un lieu qui peut vous plaire ?",
+        "Nous avons pensé à vous en ouvrant notre local à toustes. Pas besoin de nous appeler avant, pas besoin de sortir le portemonnaie, vous venez, vous jouez, et vous passez une bonne journée."
       ],
-      "prices": {}
+      "post_img_description": [
+        "PS: Passer une bonne journée est obligatoire."
+      ],
+      "prices": {
+        "Êtres humains": 0,
+        "Autres": 0
+      }
     }
   ]
 }

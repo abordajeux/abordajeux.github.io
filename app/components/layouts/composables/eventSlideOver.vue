@@ -110,7 +110,7 @@ function toggleMap() {
 
         <div v-if="current.location">
           <div>
-            <UButton icon="i-lucide-map-pin-house" color="secondary" class="mt-2 mb-2" @click="toggleMap">{{ current.location }}</UButton>
+            <UButton icon="i-lucide-map-pin-house" color="secondary" class="mt-2 mb-2" @click="toggleMap">{{ mapShown ? "Masquer la carte" : current.location }}</UButton>
           </div>
           <div v-if="mapShown && current.coordinates">
             <iframe :src="`https://map.geo.admin.ch/#/embed?lang=en&center=${current.coordinates}&z=10&topic=ech&layers=&bgLayer=ch.swisstopo.pixelkarte-grau&hideEmbedUI&crosshair=cross`" style="border: 0;width: 100%;height: 300px;max-width: 100%;max-height: 100%;" allow="geolocation" />

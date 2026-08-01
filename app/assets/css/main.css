@@ -10,10 +10,10 @@
 :root {
   --ui-container: var(--container-8xl);
   --ui-primary: #05037a;
-  --ui-secondary: #705102;
+  --ui-secondary: #5c026e;
   --ui-neutral: #011114;
   --ui-success: #079113;
-  --ui-warning: #9d3f05;
+  --ui-warning: #e69908;
   --ui-error: #ff0000;
   --page-bg: #ecdac1;
 }
