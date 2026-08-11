@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import * as v from 'valibot'
 import type { FormSubmitEvent, TableColumn } from '@nuxt/ui'
-import { Forminit } from 'forminit';
 import { usePirateStore } from '@/stores/appStore';
 const pirateStore = usePirateStore()
 
@@ -175,13 +174,11 @@ watch(isMobile, () => {
 })
 
 
-const forminit = new Forminit({ proxyUrl: 'https://forminit.com/f/7y9rmra9z9o' });
+const { status, error, showForm, submit } = useForminitForm({
+  formId: '7y9rmra9z9o',
+  onSuccessToast: { title: 'Success', description: 'Votre demande a été transmise avec succès' },
+})
 
-const status = ref<'idle' | 'loading' | 'success' | 'error'>('idle');
-const error = ref<string | null>(null);
-
-const currentDate = new Date()
-const localGrabDate = new Date(2026, 6, 14)
 const schema= v.object({
   "fi-text-subject": v.string(),
   "fi-sender-email": v.pipe(v.string(), v.email('Invalid email')),
@@ -198,34 +195,10 @@ const state = reactive({
   "fi-text-message": '',
 })
 
-const toast = useToast()
-const showForm = ref(true)
-
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  await handleSubmit(event)
-  toast.add({ title: 'Success', description: 'Votre demande a été transmise avec succès', color: 'success' })
-  showForm.value = false
-}
-
-async function handleSubmit(e: FormSubmitEvent<Schema>) {
-  e.preventDefault();
-  status.value = 'loading';
-  error.value = null;
-
-  const form = e.data;
-  const formData = new FormData()
-  Object.entries(form).forEach(([keyof, value]) =>
-  formData.append(keyof, value))
-  const { error: submitError } = await forminit.submit( '7y9rmra9z9o' , formData);
-
-  if (submitError) {
-    status.value = 'error';
-    error.value = submitError.message;
-    return;
-  }
-
-  status.value = 'success';
+  event.preventDefault()
+  await submit(event.data)
 }
 </script>
 
@@ -242,15 +215,11 @@ async function handleSubmit(e: FormSubmitEvent<Schema>) {
         Où Jouons nous ?
       </div>
 
-      <div v-if="localGrabDate < currentDate" class="p-3">
+      <div class="p-3">
         Situé à la Rue de la Gare 4 à Peseux, le local est le lieu central de l'association,
         quartier général de l'équipage où l'on organise la majorité de nos événements réguliers.
         Il est disponible pour tout membre qui souhaite organiser une petite partie ou deux de jeu,
         même en dehors des activités officielles.
-      </div>
-
-      <div v-else class="p-3">
-        À l'heure actuelle, nos soirées régulières ont lieu à l'hôtel des associations
       </div>
 
       <iframe src="https://map.geo.admin.ch/#/embed?lang=en&center=2557902.08,1203975.84&z=11&topic=ech&layers=KML%7Chttps://public.geo.admin.ch/api/kml/files/uRMSLxNnRDizU1MJBS7Y9w&bgLayer=ch.swisstopo.pixelkarte-grau&featureInfo=default" style="border: 0;width: 100%;height: 400px;max-width: 100%;max-height: 100%;" allow="geolocation" />

@@ -1,0 +1,452 @@
+{
+  "games": [
+    {
+      "id": "76707",
+      "date_acquisition": "2026-07-08",
+      "titre": "5-Minutes Marvel",
+      "sous_titre": "",
+      "image_url": "/games-carousel/5-minutes-marvel.webp"
+    },
+    {
+      "id": "41062",
+      "date_acquisition": "2026-07-08",
+      "titre": "7 Wonders",
+      "sous_titre": "",
+      "image_url": "/games-carousel/7-wonders.webp"
+    },
+    {
+      "id": "1616",
+      "date_acquisition": "2025-02-05",
+      "titre": "Abyss",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "46008",
+      "date_acquisition": "2025-02-05",
+      "titre": "Augustus",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "10754",
+      "date_acquisition": "2025-02-05",
+      "titre": "Bang! - The Bullet!",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "50889",
+      "date_acquisition": "2026-07-08",
+      "titre": "Cartaventura - Oklahoma",
+      "sous_titre": "",
+      "image_url": "/games-carousel/cartaventura-oklahoma.webp"
+    },
+    {
+      "id": "51951",
+      "date_acquisition": "2025-02-05",
+      "titre": "Cascadia",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "817",
+      "date_acquisition": "2026-07-08",
+      "titre": "Celestia",
+      "sous_titre": "",
+      "image_url": "/games-carousel/celestia.webp"
+    },
+    {
+      "id": "34427",
+      "date_acquisition": "2025-02-05",
+      "titre": "Champ D'Honneur",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "70179",
+      "date_acquisition": "2025-02-05",
+      "titre": "Chroniques de Drunagor",
+      "sous_titre": "L'Âge des Ténèbres",
+      "image_url": ""
+    },
+    {
+      "id": "629",
+      "date_acquisition": "2025-02-05",
+      "titre": "Codenames",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "37994",
+      "date_acquisition": "2026-07-08",
+      "titre": "Codex - L'Ultime Secret De Léonard De Vinci",
+      "sous_titre": "",
+      "image_url": "/games-carousel/codex-de-vinci.webp"
+    },
+    {
+      "id": "1467",
+      "date_acquisition": "2025-02-05",
+      "titre": "Colt Express",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "73844",
+      "date_acquisition": "2026-03-20",
+      "titre": "Courtisans",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "80779",
+      "date_acquisition": "2026-05-30",
+      "titre": "Darwin's Journey",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "27222",
+      "date_acquisition": "2026-05-30",
+      "titre": "Detective Club",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "52096",
+      "date_acquisition": "2026-07-08",
+      "titre": "Dune - Betrayal",
+      "sous_titre": "",
+      "image_url": "/games-carousel/dune-betrayal.webp"
+    },
+    {
+      "id": "54365",
+      "date_acquisition": "2025-02-05",
+      "titre": "Dungeon Fighter",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "89117",
+      "date_acquisition": "2026-03-06",
+      "titre": "Emblèmes",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "67209",
+      "date_acquisition": "2025-02-05",
+      "titre": "Faraway",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "51279",
+      "date_acquisition": "2025-02-05",
+      "titre": "Flamecraft",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "41745",
+      "date_acquisition": "2025-02-05",
+      "titre": "Happy City",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "59448",
+      "date_acquisition": "2026-07-08",
+      "titre": "Heredity",
+      "sous_titre": "Le livre de Swan",
+      "image_url": "/games-carousel/heredity.webp"
+    },
+    {
+      "id": "3997",
+      "date_acquisition": "2026-07-08",
+      "titre": "Horreur à Arkham - L'Horreur de Miskatonic",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "7107",
+      "date_acquisition": "2026-03-06",
+      "titre": "Jamaïca",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "1830",
+      "date_acquisition": "2026-07-08",
+      "titre": "Le monde est fou",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "337",
+      "date_acquisition": "2026-07-08",
+      "titre": "Les Inventeurs",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "18179",
+      "date_acquisition": "2026-07-08",
+      "titre": "Les Loups-Garous de Thiercelieux",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "1255",
+      "date_acquisition": "2026-07-08",
+      "titre": "Limite Limite",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "19084",
+      "date_acquisition": "2026-03-06",
+      "titre": "Manila",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "66477",
+      "date_acquisition": "2025-02-05",
+      "titre": "Marrakech",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "3938",
+      "date_acquisition": "2026-07-08",
+      "titre": "Mito !",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "58122",
+      "date_acquisition": "2025-02-05",
+      "titre": "Mow",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "36010",
+      "date_acquisition": "2025-02-05",
+      "titre": "Nidavellir",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "51930",
+      "date_acquisition": "2026-07-08",
+      "titre": "Nouvelles ContRées",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "35222",
+      "date_acquisition": "2025-02-05",
+      "titre": "Oriflamme",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "2674",
+      "date_acquisition": "2026-07-08",
+      "titre": "Peloponnes",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "82131",
+      "date_acquisition": "2026-07-08",
+      "titre": "Perudo",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "20819",
+      "date_acquisition": "2026-07-12",
+      "titre": "Pirates of the 7 seas",
+      "sous_titre": "",
+      "image_url": "/games-carousel/pirates-of-the-7-seas.webp"
+    },
+    {
+      "id": "47040",
+      "date_acquisition": "2025-02-05",
+      "titre": "Potion Explosion",
+      "sous_titre": "2e édition",
+      "image_url": ""
+    },
+    {
+      "id": "38287",
+      "date_acquisition": "2025-02-05",
+      "titre": "Race for the Galaxy",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "2004",
+      "date_acquisition": "2026-03-06",
+      "titre": "Rampage",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "29303",
+      "date_acquisition": "2026-07-08",
+      "titre": "Res Arcana",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "1948",
+      "date_acquisition": "2026-07-08",
+      "titre": "Ricochet Robots",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "19043",
+      "date_acquisition": "2026-07-08",
+      "titre": "Rythme and Boulet",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "19907",
+      "date_acquisition": "2025-02-05",
+      "titre": "Sapiens",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "3383",
+      "date_acquisition": "2026-07-08",
+      "titre": "Seasons",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "17699",
+      "date_acquisition": "2026-07-08",
+      "titre": "Shabadabada...",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "42051",
+      "date_acquisition": "2026-05-30",
+      "titre": "Shamans",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "8156",
+      "date_acquisition": "2025-02-05",
+      "titre": "Small World",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "57838",
+      "date_acquisition": "2026-07-08",
+      "titre": "Splendor Duel",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "67617",
+      "date_acquisition": "2026-07-08",
+      "titre": "Super Miaou",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "85636",
+      "date_acquisition": "2026-03-06",
+      "titre": "Take Time",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "39582",
+      "date_acquisition": "2026-07-08",
+      "titre": "The Loop",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "36667",
+      "date_acquisition": "2026-07-08",
+      "titre": "Time Bomb - Evolution",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "63398",
+      "date_acquisition": "2026-07-08",
+      "titre": "Time Collectors",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "67722",
+      "date_acquisition": "2026-04-21",
+      "titre": "Traîtres à Bord !",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "61079",
+      "date_acquisition": "2026-07-08",
+      "titre": "Unlock! - Extraordinary Adventures",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "53023",
+      "date_acquisition": "2026-07-08",
+      "titre": "Unlock! - Game Adventures",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "32027",
+      "date_acquisition": "2026-07-08",
+      "titre": "Unlock! - Timeless Adventures",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "53035",
+      "date_acquisition": "2026-07-08",
+      "titre": "Vampire La Mascarade - Rivals",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "78434",
+      "date_acquisition": "2026-07-08",
+      "titre": "Yokai Septet",
+      "sous_titre": "Pocket Edition",
+      "image_url": ""
+    },
+    {
+      "id": "12023",
+      "date_acquisition": "2026-07-08",
+      "titre": "Yspahan",
+      "sous_titre": "",
+      "image_url": ""
+    },
+    {
+      "id": "64293",
+      "date_acquisition": "2026-07-08",
+      "titre": "Zombie Kittens",
+      "sous_titre": "",
+      "image_url": ""
+    }
+  ]
+}

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-    import placeholder from '@/assets/images/placeholder.png'
 
 
 </script>
@@ -15,25 +14,28 @@
  <UPageCard
     id="NIFFF"
     class="w-full max-w-md flex-1"
-    title="Collaboration avec le NIFFF - 2026"
+    title="Collaboration avec le NIFFF"
     description="L'abordajeux collabore avec le NIFFF, proposant des jeux de sociétés et des jeux de rôles en rapport avec les thèmes du festival."
     icon="i-lucide-skull"
     to="/nifff"
   >
-    <img :src="resolveImage('nifff_affiche_semaine.jpeg')" class="max-h-100 w-auto">
+  <div class="relative">
+    <img :src="resolveImage('nifff/2026/nifff_affiche_semaine.jpeg')" class="max-h-100 w-auto">
+          <UBadge color="neutral" variant="solid" class="absolute top-2 right-2">Déjà Fini</UBadge>
+</div>
   </UPageCard>
 
   <UPageCard
-    id="PNJ"
+    id="SOON"
     class="w-full max-w-md flex-1"
-    title="Les Presques 24h du Jeu 2026"
-    description="L'abordajeux revient en 2026 avec presques 24h de jeux de sociétés et de rôles. Viendez tous:3."
-    icon="i-lucide-skull"
-    to="/presque"
+    title="Quelque chose se prépare..."
+    description="L'équipage mijote un plan qui aboutira en Novembre... Mais on vous en reparlera avant"
+    icon="i-lucide-hourglass"
+    to="/soon"
   >
-    <img :src="placeholder" class="max-h-100 w-auto">
-    <div class="text-xs">
-        <UIcon name="i-lucide-brush" class="text-xl"/> placeholder par JonGriffon
+    <div class="relative">
+      <img :src="resolveImage('soon.png')" class="max-h-100 w-auto opacity-80">
+      <UBadge color="success" variant="solid" class="absolute top-2 right-2">BIENTÔT</UBadge>
     </div>
   </UPageCard>
 </div>

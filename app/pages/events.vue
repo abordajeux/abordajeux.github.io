@@ -1,101 +1,109 @@
 <script setup lang="ts">
-
-import  {buildInitialCalendarIndex} from '~/components/layouts/composables/EventsHandler.composable'
-import type { datedEvent } from '~/types/navigation'
+import { CalendarDate } from '@internationalized/date'
 import EventSlideOver from '~/components/layouts/composables/eventSlideOver.vue'
+import { getEventsByDate, loadEvents, rollingWindow, topCategory } from '~/utils/eventsLoader'
+import type { CalendarEvent as AppCalendarEvent, EventCategory } from '~/utils/eventsLoader'
 
 const overlay = useOverlay()
-const slideover = overlay.create(EventSlideOver)
+const slideOver = overlay.create(EventSlideOver)
+const toast = useToast()
 
-async function  open(activity: datedEvent) {
-  const instance = slideover.open({
-    activity
-  })
-
-  await instance.result
-
-  return
-
-}
-
-const events: Record<string, datedEvent[]> = buildInitialCalendarIndex(new Date('2026-01-01'), new Date('2026-12-31'))
-
-onUnmounted(() => {
-  slideover?.close()
+const [windowStart, windowEnd] = rollingWindow()
+const events = loadEvents(windowStart, windowEnd, (message) => {
+  toast.add({ title: 'Événement ignoré', description: message, color: 'warning' })
 })
 
-function getEventsByDate(date: Date, verbose: boolean = false): datedEvent[] {
+const minValue = new CalendarDate(windowStart.getFullYear(), windowStart.getMonth() + 1, windowStart.getDate())
+const maxValue = new CalendarDate(windowEnd.getFullYear(), windowEnd.getMonth() + 1, windowEnd.getDate())
 
-  const event: datedEvent[] = []
-    Object.values(events).forEach((all_events: datedEvent[]) =>{
-        if(verbose) {
-    console.error(all_events)
-  }
-      const activity = all_events.find((act) => act.date.getDate() === date.getDate() && act.date.getFullYear() === date.getFullYear() && act.date.getMonth() === date.getMonth())
-      if(activity) {
-        event.push(activity)
-      }
-    })
+type CalendarChipColor = 'primary' | 'secondary' | 'neutral' | 'success' | 'warning' | 'error' | 'info'
 
-    return event
-}
-function getColorByDate(date: Date) {
-
-  const eventsForDate = getEventsByDate(date)
-
-  if (eventsForDate.length > 0) {
-    return eventsForDate[0]?.isPublic ? 'success' : 'warning'
-  }
-
-  return undefined
+const CATEGORY_COLOR: Record<EventCategory, CalendarChipColor> = {
+  'local-open': 'success',
+  'local-closed': 'warning',
+  'external-open': 'info',
+  'external-closed': 'secondary',
+  'cancelled': 'error',
+  'reservation': 'neutral',
 }
 
-interface DateLike {
-  year: number,
-  month: number,
-  day: number
+const LEGEND_ENTRIES: { label: string, category: EventCategory }[] = [
+  { label: 'Événement ayant lieu dans notre local, ouvert à tous', category: 'local-open' },
+  { label: 'Événement ayant lieu dans notre local, ouvert aux membres', category: 'local-closed' },
+  { label: 'Événement externe au local, ouvert à tous', category: 'external-open' },
+  { label: 'Événement externe au local, ouvert aux membres', category: 'external-closed' },
+  { label: 'Événement annulé', category: 'cancelled' },
+]
+
+type CalendarDay = { year: number, month: number, day: number }
+
+function dayToKey(day: CalendarDay): string {
+  return `${day.year}-${String(day.month).padStart(2, '0')}-${String(day.day).padStart(2, '0')}`
 }
-function showSlide(date : DateLike) {
-  if(date && date.year && date.month && date.day){
-  const eventsForTheDay = getEventsByDate(new Date(date.year, date.month -1, date.day))
-    // for now: we show only the first
-  if (eventsForTheDay.length > 0) {
-    open(eventsForTheDay[0]!)
-  }
-  else {
-    console.error("THERE IS A PROBLEM BOSS")
+
+function categoryForDay(day: CalendarDay): EventCategory | undefined {
+  return topCategory(getEventsByDate(events, dayToKey(day)))
+}
+
+function showSlide(day: CalendarDay) {
+  const dayEvents = getEventsByDate(events, dayToKey(day))
+  if (dayEvents.length > 0) {
+    openEvent(dayEvents)
   }
 }
 
+async function openEvent(dayEvents: AppCalendarEvent[]) {
+  const instance = slideOver.open({ activities: dayEvents })
+  await instance.result
 }
 
-
+onUnmounted(() => {
+  slideOver?.close()
+})
 </script>
 
 <template>
   <div class="min-h-[80vh] flex flex-col items-center p-3">
-
-    <img :src="resolveImage('img_calendar.png')" >
+    <img :src="resolveImage('img_calendar.png')">
 
     <h1 class="text-4xl font-bold text-primary p-3">
       Calendrier des événements
     </h1>
 
     <UCalendar
-:year-controls="false"   :ui="{
-    root: 'text-lg p-4',
-    header: 'text-xl',
-    cell: 'h-12 w-12 text-base'
-  }"
-    locale="fr-FR">
+      :min-value="minValue"
+      :max-value="maxValue"
+      :year-controls="false"
+      :ui="{
+        root: 'text-lg p-4',
+        header: 'text-xl',
+        cell: 'h-12 w-12 text-base',
+      }"
+      locale="fr-FR"
+    >
       <template #day="{ day }">
-        <div id="bruh" @click="showSlide(day)">
-          <UChip :show="!!getColorByDate(day.toDate('UTC'))" :color="getColorByDate(day.toDate('UTC'))" size="2xs">
-            {{ day.day }}
+        <div @click="showSlide(day)">
+          <UChip
+            :show="!!categoryForDay(day)"
+            :color="CATEGORY_COLOR[categoryForDay(day) ?? 'reservation']"
+            size="2xs"
+          >
+            <span :class="{ 'line-through': categoryForDay(day) === 'cancelled' }">
+              {{ day.day }}
+            </span>
           </UChip>
         </div>
       </template>
     </UCalendar>
 
+    <div class="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 justify-center p-4 text-sm text-neutral">
+      <div v-for="entry in LEGEND_ENTRIES" :key="entry.category" class="flex items-center gap-2">
+        <span
+          class="inline-block size-3 rounded-full"
+          :style="{ backgroundColor: `var(--ui-${CATEGORY_COLOR[entry.category]})` }"
+        />
+        <span>{{ entry.label }}</span>
+      </div>
+    </div>
   </div>
 </template>

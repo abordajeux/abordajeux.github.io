@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import * as v from 'valibot'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import { Forminit } from 'forminit';
 import StarRating from '~/components/layouts/layout_components/StarRating.vue';
 
-const forminit = new Forminit({ proxyUrl: 'https://forminit.com/f/ulekc1cw41t' });
+const { status, error, showForm, submit } = useForminitForm({
+  formId: 'ulekc1cw41t',
+  onSuccessToast: { title: 'Success', description: 'Votre demande a été transmise avec succès' },
+})
 
 const possibleEvents: string[]= ["Soirée jeu du mercredi", "Game O'Clock", "One shot de jeu de rôle", "Événement au NIFFF", "Autre"]
-
-const status = ref<'idle' | 'loading' | 'success' | 'error'>('idle');
-const error = ref<string | null>(null);
 
 const schema= v.object({
   "fi-text-event": v.string(),
@@ -31,34 +30,10 @@ const state = reactive({
   "fi-number-welcome": 0,
 })
 
-const toast = useToast()
-const showForm = ref(true)
-
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  await handleSubmit(event)
-  toast.add({ title: 'Success', description: 'Votre demande a été transmise avec succès', color: 'success' })
-  showForm.value = false
-}
-
-async function handleSubmit(e: FormSubmitEvent<Schema>) {
-  e.preventDefault();
-  status.value = 'loading';
-  error.value = null;
-
-  const form = e.data;
-  const formData = new FormData()
-  Object.entries(form).forEach(([keyof, value]) =>
-  formData.append(keyof, String(value)))
-  const { error: submitError } = await forminit.submit( 'ulekc1cw41t' , formData);
-
-  if (submitError) {
-    status.value = 'error';
-    error.value = submitError.message;
-    return;
-  }
-
-  status.value = 'success';
+  event.preventDefault()
+  await submit(event.data)
 }
 </script>
 
