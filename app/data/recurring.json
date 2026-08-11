@@ -45,7 +45,7 @@
     },
     {
       "id": "biweekly-event-joey-jdr",
-      "title": "Le Jeu de Rôle de Joey",
+      "title": "Le Jeu de Rôle de Ce Mec, Là, que je vais pas dire son nom parce que j'ai pas son accord, mais je vous assure qu'il est super :3.",
       "rrule": "FREQ=WEEKLY;INTERVAL=2;BYDAY=TH;DTSTART=20260730T130000Z",
       "hours": ["19:00", "23:00"],
       "isPublic": false,
@@ -55,7 +55,8 @@
       "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
       "pre_img_description": [
         "Une aventure épique attend des types sympas qui se réunissent toutes les deux semaines.",
-        "Si si, je vous promets qu'ils s'amusent."
+        "Si si, je vous promets qu'ils s'amusent.",
+        "J'essaierai de demander le synopsis de la campagne avant qu'elle ne se termine"
       ],
       "post_img_description": [
         "De nouvelles tables de jeu de rôle s'ouvrent parfois, demandez nous :3"
@@ -64,7 +65,7 @@
     },
     {
       "id": "biweekly-jilian-jdr",
-      "title": "Jeu de rôle de Jilian ( Warhammer - Complet )",
+      "title": "Campagne de Jeu de Rôle - Warhammer.",
       "rrule": "FREQ=WEEKLY;INTERVAL=2;BYDAY=TU;DTSTART=20260811T120000Z",
       "hours": ["19:00", "23:00"],
       "isPublic": false,
@@ -73,7 +74,8 @@
       "image_path": "placeholder.png",
       "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
       "pre_img_description": [
-        "Une campagne de jeu de rôle menée par Jilian. Texte à compléter."
+        "Une campagne de jeu de rôle menée par l'un de nos membres. Dans l'univers de Warhammer.",
+        "Promis, à un moment donné, j'aurai des informations en plus, et je pourrai vous dire à quel point c'est super."
       ],
       "post_img_description": [
         "De nouvelles tables de jeu de rôle s'ouvrent parfois, demandez nous :3"
@@ -129,7 +131,7 @@
     {
       "id": "evenement-membre",
       "title": "Événement Organisé par un Membre",
-      "rrule": "FREQ=MONTHLY;BYDAY=3SA;DTSTART=20260801T120000Z",
+      "rrule": "FREQ=MONTHLY;BYDAY=3SA;DTSTART=20260901T120000Z",
       "hours": ["10:00", "20:00"],
       "isPublic": false,
       "location": "Rue de la gare 4, 2034 Peseux",
