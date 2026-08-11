@@ -15,6 +15,9 @@ operator-facing and in French).
 
 From the README and the project-overview spec:
 
+- **NEVER commit, push, amend, or create PRs unless the operator gives an explicit, per-instance
+  instruction.** This is non-negotiable and applies to every repo in the project. The operator
+  manages all git operations themselves.
 - **No authentication, no cookies, no sessions, no credentials** — non-negotiable.
 - **Static front-end stays on GitHub Pages.** Anything stateful goes in a *separate* service.
 - **No secrets in the front-end** — the repo is public.
