@@ -32,6 +32,7 @@ describe('resolveImage', () => {
   it('still resolves real flat-path and nested-path images (no false positives)', () => {
     expect(resolveImage('event_mercredi.jpeg')).not.toBe('')
     expect(resolveImage('nifff/2026/nifff_affiche_semaine.jpeg')).not.toBe('')
+    expect(resolveImage('videos/dungeon_lords_longue.jpg')).not.toBe('')
   })
 })
 

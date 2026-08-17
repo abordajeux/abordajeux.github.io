@@ -58,7 +58,6 @@
 
     </template>
 
-
   </UFooter>
 
 </template>

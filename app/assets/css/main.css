@@ -2,13 +2,12 @@
 @import "@nuxt/ui";
 
 @theme {
-  --container-8xl: 80vh;
   --breakpoint-xs: 36rem;
   --font-display: "Pieces of Eight", "Graduate", "Pirata One", "Raleway", sans-serif;
 }
 
 :root {
-  --ui-container: var(--container-8xl);
+  --ui-container: 90rem;
   --ui-primary: #05037a;
   --ui-secondary: #5c026e;
   --ui-neutral: #011114;

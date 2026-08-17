@@ -10,6 +10,7 @@ export const usePirateStore = defineStore('application', () => {
         { label: 'Événements', to: '/events', icon: 'i-lucide-calendar-days' },
         { label: 'Nos Projets', to: '/projects', icon: 'i-lucide-sailboat' },
         { label: 'Nos jeux', to: '/games', icon: 'i-lucide-chess-queen' },
+        { label: 'Un peu d\'art', to: '/credits', icon: 'i-lucide-brush' },
         { label: 'Informations et Contact', to: '/info', icon: 'i-lucide-info' },
     ]
 

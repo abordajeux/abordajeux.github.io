@@ -1,0 +1,32 @@
+[
+  {
+    "kind": "youtube",
+    "id": "Zic-JO46SGo",
+    "title": "Dungeon Lords - Version Longue",
+    "thumbnail": "videos/dungeon_lords_longue.jpg",
+    "featured": true
+  },
+  {
+    "kind": "instagram",
+    "id": "DWhOyq8DBvS",
+    "title": "Épisode 1: Mister Jack",
+    "thumbnail": "videos/reel_1_mister_jack.png"
+  },
+  {
+    "kind": "instagram",
+    "id": "DX6Fu5gMK5g",
+    "title": "Épisode 2: Dice Throne",
+    "thumbnail": "videos/reel_2_dice_throne.png"
+  },
+  { "kind": "instagram",
+    "id": "DZAl9IjsMfw",
+    "title": "Épisode 3: Dune Imperium",
+    "thumbnail": "videos/reel_3_dune_imperium.png"
+  },
+  {
+    "kind": "instagram",
+    "id": "DcJj7oGM_7n",
+    "title": "Épisode 4: Dungeon Lords",
+    "thumbnail": "videos/reel_4_dungeon_lords.jpg"
+  }
+]

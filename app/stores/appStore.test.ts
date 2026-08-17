@@ -22,11 +22,11 @@ describe('usePirateStore.changeProject (project.global.ts delegates to this)', (
   })
 
   it.each([
-    ['', 5],
-    ['info', 5],
-    ['programme', 5],
-    ['events', 5],
-    ['galerie', 5],
+    ['', 6],
+    ['info', 6],
+    ['programme', 6],
+    ['events', 6],
+    ['galerie', 6],
   ])('falls back to standard nav for first path segment %r (%i items)', (segment, count) => {
     const store = usePirateStore()
     store.changeProject(segment)
@@ -40,6 +40,6 @@ describe('usePirateStore.changeProject (project.global.ts delegates to this)', (
     expect(store.currentProject).toBe('nifff')
     store.changeProject('info')
     expect(store.currentProject).toBeNull()
-    expect(store.navigationButtons).toHaveLength(5)
+    expect(store.navigationButtons).toHaveLength(6)
   })
 })

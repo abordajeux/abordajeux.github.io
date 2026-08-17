@@ -21,7 +21,7 @@ const pirateStore = usePirateStore()
 <template>
   <UHeader
 :ui="{
-    center: 'md:flex items-center justify-center',
+    center: 'lg:flex items-center justify-center',
     body:  'w-64 max-w-full',
   }">
  <!-- Left logo -->
@@ -31,7 +31,7 @@ const pirateStore = usePirateStore()
 
       <!-- Desktop navigation -->
     <template #default>
-      <div class="invisible md:visible items-center gap-2">
+      <div class="invisible lg:visible items-center gap-2">
         <UNavigationMenu :items="headerButtons" color="neutral"/>
       </div>
     </template>
