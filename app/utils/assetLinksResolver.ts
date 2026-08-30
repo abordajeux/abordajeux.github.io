@@ -3,6 +3,7 @@ const imageModules = import.meta.glob<string>(
     '../assets/images/*.{jpg,jpeg,png,webp,avif,gif,svg}',
     '../assets/images/nifff/**/*.{jpg,jpeg,png,webp,avif,gif,svg}',
     '../assets/images/games-carousel/**/*.{jpg,jpeg,png,webp,avif,gif,svg}',
+    '../assets/images/presque/**/*.{jpg,jpeg,png,webp,avif,gif,svg}',
     '../assets/images/videos/**/*.{jpg,jpeg,png,webp,avif,gif,svg}',
   ],
   { eager: true, import: 'default' },

@@ -65,17 +65,20 @@ function toggleMap() {
 <template>
   <div class="min-h-[80vh] flex flex-col items-center p-3 max-w-3xl mx-auto">
     <h1 class="text-4xl font-bold text-primary p-3 text-center">
-      Les Presques 24h du Jeu
+      Les Presque 24h du Jeu 2026
     </h1>
 
     <p class="text-xl text-neutral p-3 text-center">
-      Presques 24h de jeux de sociétés et de rôles. Viendez tous :3
+      Presque 24h de jeux de sociétés et de rôles. Viendez tous et invitez vos ami.e.s. Si vous n'avez pas d'amis, rejoignez nous et vous devriez en avoir quelques uns d'ici à la fin de l'évènement.
+    </p>
+    <p class="text-xl text-neutral p-3 text-center">
+    Le programme est en cours d'élaboration et nous devrions vous le donner presque bientôt. Lorsqu'il sera là, vous pourrez voir les différentes activités et vous inscrire à l'avance.
+    </p>
+    <p class="text-xl text-neutral p-3 text-center">
+      Il y aura des jeux de société et des jeux de rôle, du jeu de carte et des jeux sociaux. Des gens qui vous expliquent des règles et des gens qui servent à manger et à boire.
     </p>
 
-    <img :src="placeholder" alt="" class="max-h-100 w-auto rounded my-4">
-    <div class="text-xs text-neutral mb-6">
-      <UIcon name="i-lucide-brush" class="text-xl" /> placeholder par JonGriffon
-    </div>
+    <img :src="resolveImage('presque/affiche_presque_no_sponsor.jpeg')" alt="" class="max-h-100 w-auto rounded my-4">
 
     <div class="grid md:grid-cols-2 gap-6 w-full mb-8">
       <div class="flex flex-col items-center text-center">
@@ -122,7 +125,7 @@ function toggleMap() {
         Vous voulez Viendre ?
       </h2>
       <p class="text-neutral text-center mb-4">
-        Le programme se précise et nous cherchons des bénévoles. Dites-nous comment vous impliquer.
+        Le programme se précisera bientôt et nous cherchons des bénévoles. Dites-nous comment vous impliquer.
       </p>
 
       <div v-if="status === 'error'" class="text-error text-sm mb-3 text-center">

@@ -29,18 +29,13 @@ function artistImage(image: string | undefined) {
           :key="artist.name"
           class="flex flex-col items-center gap-2 p-4 rounded-lg border border-neutral-300 dark:border-neutral-700"
         >
-          <img
-            v-if="artistImage(artist.image)"
+          <UAvatar
             :src="artistImage(artist.image)"
             :alt="artist.name"
-            class="w-20 h-20 rounded-full object-cover"
-          >
-          <span
-            v-else
-            class="flex items-center justify-center w-20 h-20 rounded-full bg-primary/10"
-          >
-            <UIcon name="i-lucide-brush" class="text-3xl text-primary" />
-          </span>
+            icon="i-lucide-brush"
+            size="3xl"
+            :ui="{ root: 'size-20 bg-primary/10', icon: 'size-8 text-primary' }"
+          />
           <div class="text-lg font-semibold">
             {{ artist.name }}
           </div>
