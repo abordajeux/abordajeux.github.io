@@ -14,7 +14,7 @@
       ],
       "external_link": ["/info#contact", "S'inscrire", "i-lucide-notebook-pen", ""],
       "prices": {
-        "Non-membres, première visite": 5,
+        "Non-membres, première visite": 0,
         "Non-membres, visites ultérieures": 20,
         "Membres": 0
       }
@@ -123,7 +123,7 @@
 "Si les jeux proposés sont un peu plus complexes, nos tables libres restent ouvertes à n'importe quel jeu.", "Promis, on vous regardera même pas de travers."
 ],
       "prices": {
-        "Non-membres, première visite": 5,
+        "Non-membres, première visite": 0,
         "Non-membres, visites ultérieures": 20,
         "Membres": 0
       }
@@ -131,7 +131,7 @@
     {
       "id": "evenement-membre",
       "title": "Événement Organisé par un Membre",
-      "rrule": "FREQ=MONTHLY;BYDAY=3SA;DTSTART=20260901T120000Z",
+      "rrule": "FREQ=MONTHLY;BYDAY=3SA;DTSTART=20261001T120000Z",
       "hours": ["10:00", "20:00"],
       "isPublic": false,
       "location": "Rue de la gare 4, 2034 Peseux",
