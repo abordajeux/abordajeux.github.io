@@ -86,7 +86,7 @@
       "id": "apres-midi-jeu",
       "title": "Après-Midi Jeu",
       "rrule": "FREQ=MONTHLY;BYDAY=1SU;DTSTART=20260802T120000Z",
-      "hours": ["11:00", "19:00"],
+      "hours": ["14:00", "23:00"],
       "isPublic": false,
       "location": "Rue de la gare 4, 2034 Peseux",
       "coordinates": "2557931.93, 1203977.98",
