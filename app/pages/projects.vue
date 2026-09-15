@@ -34,7 +34,7 @@
   >
     <div class="relative">
       <img :src="resolveImage('portesouvertes.jpeg')" class="max-h-100 w-auto opacity-80">
-      <UBadge color="success" variant="solid" class="absolute top-2 right-2">SEPTEMBRE 2026</UBadge>
+      <UBadge color="neutral" variant="solid" class="absolute top-2 right-2">Déjà Fini</UBadge>
     </div>
   </UPageCard>
   <UPageCard
