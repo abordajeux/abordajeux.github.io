@@ -17,6 +17,7 @@ export const usePirateStore = defineStore('application', () => {
     const presqueNavigation = [
         { label: 'Accueil', to: '/', icon: 'i-lucide-house' },
         { label: 'L\'Événement en Bref', to: '/presque', icon: 'i-lucide-presentation' },
+        { label: 'Nous aider', to: '/presque/nous-aider', icon: 'i-lucide-heart-handshake' },
         { label: 'Nous contacter', to: '/info', icon: 'i-lucide-info' },
     ]
 

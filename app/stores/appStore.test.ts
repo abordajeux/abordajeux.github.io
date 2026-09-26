@@ -10,12 +10,13 @@ describe('usePirateStore.changeProject (project.global.ts delegates to this)', (
     expect(store.currentProject).toBe('nifff')
   })
 
-  it('renders the static presque nav unchanged', () => {
+  it('renders the static presque nav with the Nous aider entry', () => {
     const store = usePirateStore()
     store.changeProject('presque')
     expect(store.navigationButtons.map(item => item.label)).toEqual([
       'Accueil',
       'L\'Événement en Bref',
+      'Nous aider',
       'Nous contacter',
     ])
     expect(store.currentProject).toBe('presque')

@@ -1,58 +1,31 @@
 <script setup lang="ts">
 import * as v from 'valibot'
 import type { FormSubmitEvent } from '@nuxt/ui'
-import placeholder from '@/assets/images/placeholder.png'
 
-const CONTACT_FORM_ID = '7y9rmra9z9o'
 const VENUE_NAME = 'Cité des étudiants Clos-Brochet 10'
 const VENUE_CITY = '2000 Neuchâtel'
 const COORDINATES = '2562125.81,1205165.67'
-
-type IntentValue = 'programme' | 'benevole' | 'both'
-type Intent = { value: IntentValue, label: string, subject: string, message: string }
-
-const INTENTS: Intent[] = [
-  {
-    value: 'programme',
-    label: 'Informez-moi du programme',
-    subject: 'Presque 24h du Jeu — inscription pour suivre le programme',
-    message: 'Je souhaite être tenu·e au courant du programme des Presques 24h du Jeu (14–15 novembre 2026).',
-  },
-  {
-    value: 'benevole',
-    label: 'Je souhaite devenir bénévole',
-    subject: 'Presque 24h du Jeu — proposition de bénévolat',
-    message: 'Je souhaite proposer mon aide en tant que bénévole pour les Presques 24h du Jeu (14–15 novembre 2026).',
-  },
-  {
-    value: 'both',
-    label: 'Informez-moi du programme et je souhaite devenir bénévole',
-    subject: 'Presque 24h du Jeu — inscription programme + bénévolat',
-    message: 'Je souhaite être tenu·e au courant du programme des Presques 24h du Jeu (14–15 novembre 2026) et je propose mon aide en tant que bénévole.',
-  },
-]
-
-const selectedIntent = ref<IntentValue>('programme')
-const selectedConfig = computed(() => INTENTS.find(intent => intent.value === selectedIntent.value)!)
+const PROGRAMME_SUBJECT = 'Presque 24h du Jeu — inscription pour suivre le programme'
+const PROGRAMME_MESSAGE = 'Je souhaite être tenu·e au courant du programme des Presques 24h du Jeu (14–15 novembre 2026).'
 
 const emailSchema = v.object({
-  'fi-sender-email': v.pipe(v.string(), v.email('Adresse email invalide')),
+  'sender_email': v.pipe(v.string(), v.email('Adresse email invalide')),
 })
 type EmailSchema = v.InferOutput<typeof emailSchema>
 
-const emailState = reactive({ 'fi-sender-email': '' })
+const emailState = reactive({ 'sender_email': '' })
 
-const { status, error, showForm, submit } = useForminitForm({
-  formId: CONTACT_FORM_ID,
+const { status, error, showForm, submit } = useApiForm({
+  endpoint: '/forms/contact',
   onSuccessToast: { title: 'Envoyé', description: 'Merci, on vous tiendra au courant !' },
 })
 
 async function onSubmit(event: FormSubmitEvent<EmailSchema>) {
   event.preventDefault()
   await submit({
-    ...event.data,
-    'fi-text-subject': selectedConfig.value.subject,
-    'fi-text-message': selectedConfig.value.message,
+    subject: PROGRAMME_SUBJECT,
+    sender_email: event.data.sender_email,
+    message: PROGRAMME_MESSAGE,
   })
 }
 
@@ -125,7 +98,7 @@ function toggleMap() {
         Vous voulez Viendre ?
       </h2>
       <p class="text-neutral text-center mb-4">
-        Le programme se précisera bientôt et nous cherchons des bénévoles. Dites-nous comment vous impliquer.
+        Le programme se précisera bientôt. Laissez votre email pour être prévenu·e dès sa publication.
       </p>
 
       <div v-if="status === 'error'" class="text-error text-sm mb-3 text-center">
@@ -133,18 +106,8 @@ function toggleMap() {
       </div>
 
       <UForm v-if="showForm" :schema="emailSchema" :state="emailState" class="space-y-4" @submit="onSubmit">
-        <UFormField label="Que souhaitez-vous ?" name="intent">
-          <USelect
-            v-model="selectedIntent"
-            :items="INTENTS"
-            value-key="value"
-            option-attribute="label"
-            class="w-full"
-          />
-        </UFormField>
-
         <UFormField label="Email" name="email">
-          <UInput v-model="emailState['fi-sender-email']" type="email" class="w-full" placeholder="vous@exemple.ch" />
+          <UInput v-model="emailState.sender_email" type="email" class="w-full" placeholder="vous@exemple.ch" />
         </UFormField>
 
         <UButton type="submit" :disabled="status === 'loading'" class="w-full justify-center">
@@ -155,6 +118,16 @@ function toggleMap() {
       <div v-else class="text-center p-4 text-neutral">
         Merci, on vous tiendra au courant !
       </div>
+
+      <UButton
+        to="/presque/nous-aider"
+        icon="i-lucide-heart-handshake"
+        color="secondary"
+        variant="outline"
+        class="mt-4 w-full justify-center"
+      >
+        Envie de nous aider ? Devenez bénévole
+      </UButton>
     </div>
   </div>
 </template>

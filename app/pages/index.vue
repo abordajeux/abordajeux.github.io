@@ -16,5 +16,29 @@
     <div class="p-3">
       Ici, tu pourras retrouver toutes les informations sur les évènements a venir, nos projets, nos jeux et comment nous contacter.
     </div>
+    <div class="p-3.5">
+      Petite nouvelle: les presques 24h sont bientôt de retour.
+
+      <UButton
+          to="/presque"
+          icon="i-lucide-skull"
+          color="secondary"
+          variant="outline"
+          class="mt-4 w-full justify-center"
+        >
+          Aller sur la page de l'événement
+      </UButton>
+      <UButton
+          to="/presque/nous-aider"
+          icon="i-lucide-heart-handshake"
+          color="secondary"
+          variant="outline"
+          class="mt-4 w-full justify-center"
+        >
+          Envie de nous aider ? Devenez bénévole
+      </UButton>
+
+    </div>
+
   </div>
-</template>
+  </template>

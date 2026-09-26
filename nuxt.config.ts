@@ -9,6 +9,11 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: '/',}, // IMPORTANT (remove later if using custom domain)
+  runtimeConfig: {
+    public: {
+      apiBase: 'https://api.abordajeux.ch',
+    },
+  },
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@pinia/nuxt', '@nuxt/eslint'],

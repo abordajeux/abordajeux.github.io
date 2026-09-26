@@ -90,8 +90,7 @@
       "isPublic": false,
       "location": "Rue de la gare 4, 2034 Peseux",
       "coordinates": "2557931.93, 1203977.98",
-      "image_path": "placeholder.png",
-      "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
+      "image_path": "dimanche_chill.jpeg",
       "pre_img_description": ["Un après midi tout en douceur, pour ceux qui souhaitent prendre le temps de jouer loin du rythme effrenné de la semaine."
 
 ,"Au programme, comme presque toujours, une sélection de jeux proposés par des membres ou l'association."
@@ -111,8 +110,7 @@
       "isPublic": true,
       "location": "Rue de la gare 4, 2034 Peseux",
       "coordinates": "2557931.93, 1203977.98",
-            "image_path": "placeholder.png",
-      "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
+            "image_path": "vendredi_gros_jeux.jpeg",
       "pre_img_description": [
 "Une soirée où nous vous proposons des jeux plus costauds, aux règles plus complexes, aux méchaniques plus poussées."
 ,"Parce que quitte à avoir mal à la tête le lendemain matin, autant ne pas travailler."
@@ -133,11 +131,10 @@
       "title": "Événement Organisé par un Membre",
       "rrule": "FREQ=MONTHLY;BYDAY=3SA;DTSTART=20261001T120000Z",
       "hours": ["10:00", "20:00"],
-      "isPublic": false,
+      "isPublic": true,
       "location": "Rue de la gare 4, 2034 Peseux",
       "coordinates": "2557931.93, 1203977.98",
-      "image_path": "placeholder.png",
-      "image_copyright": ["© placeholder par JonGriffon", "https://jongriffon.carrd.co/#tosfr"],
+      "image_path": "samedi_membres.jpeg",
       "pre_img_description": [
         "Une fois par mois, nous laissons la parole à l'un de nos membres pour organiser un petit événement ludique autour d'un thème qui lui tient à coeur.",
         "Qu'il s'agisse d'une esthétique, d'un auteur, d'une mécanique ou plus simplement de l'envie de faire un petit tournoi, ces samedis sont l'occasion pour nos membres de partager leur passion de la façon de leur choix."
@@ -145,7 +142,10 @@
       "post_img_description": [
         "Plus d'informations sur l'organisateur et sa thématique lorsque nous aurons les détails."
       ],
-      "prices": {}
+      "prices": {
+        "Êtres vivants": 0,
+        "Les autres": 0
+      }
     }
   ]
 }

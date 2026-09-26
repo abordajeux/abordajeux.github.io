@@ -174,15 +174,15 @@ watch(isMobile, () => {
 })
 
 
-const { status, error, showForm, submit } = useForminitForm({
-  formId: '7y9rmra9z9o',
-  onSuccessToast: { title: 'Success', description: 'Votre demande a été transmise avec succès' },
+const { status, error, showForm, submit } = useApiForm({
+  endpoint: '/forms/contact',
+  onSuccessToast: { title: 'Envoyé', description: 'Votre demande a été transmise avec succès' },
 })
 
 const schema= v.object({
-  "fi-text-subject": v.string(),
-  "fi-sender-email": v.pipe(v.string(), v.email('Invalid email')),
-  "fi-text-message": v.string(),
+  "subject": v.string(),
+  "sender_email": v.pipe(v.string(), v.email('Adresse email invalide')),
+  "message": v.string(),
 })
 
 
@@ -190,9 +190,9 @@ type Schema = v.InferOutput<typeof schema>
 
 
 const state = reactive({
-  "fi-text-subject": '',
-  "fi-sender-email": '',
-  "fi-text-message": '',
+  "subject": '',
+  "sender_email": '',
+  "message": '',
 })
 
 
@@ -235,15 +235,15 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       <UForm v-if="showForm" :schema="schema" :state="state" class="space-y-4 w-full" @submit="onSubmit">
 
         <UFormField label="Pourquoi nous écrivez vous ?" name="subject" >
-          <UInput v-model="state['fi-text-subject']" class="w-full"/>
+          <UInput v-model="state.subject" class="w-full"/>
         </UFormField>
 
         <UFormField label="Email" name="email">
-          <UInput v-model="state['fi-sender-email']" class="w-full"/>
+          <UInput v-model="state.sender_email" class="w-full"/>
         </UFormField>
 
         <UFormField label="Message" name="message">
-          <UTextarea v-model="state['fi-text-message']" type="textarea" class="w-full"/>
+          <UTextarea v-model="state.message" type="textarea" class="w-full"/>
         </UFormField>
 
         <div v-if="status === 'error'">
