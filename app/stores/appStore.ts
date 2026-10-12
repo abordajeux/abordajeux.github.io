@@ -8,15 +8,18 @@ export const usePirateStore = defineStore('application', () => {
     const standardNavigation = [
         { label: 'Accueil', to: '/', icon: 'i-lucide-house' },
         { label: 'Événements', to: '/events', icon: 'i-lucide-calendar-days' },
+        { label: 'Presques 24h du Jeu', to: '/presque', icon: 'i-lucide-hourglass' },
         { label: 'Nos Projets', to: '/projects', icon: 'i-lucide-sailboat' },
         { label: 'Nos jeux', to: '/games', icon: 'i-lucide-chess-queen' },
-        { label: 'Un peu d\'art', to: '/credits', icon: 'i-lucide-brush' },
+        { label: 'Coin des artistes', to: '/credits', icon: 'i-lucide-brush' },
         { label: 'Informations et Contact', to: '/info', icon: 'i-lucide-info' },
     ]
 
     const presqueNavigation = [
         { label: 'Accueil', to: '/', icon: 'i-lucide-house' },
         { label: 'L\'Événement en Bref', to: '/presque', icon: 'i-lucide-presentation' },
+        //TODO: add back program to nav
+        //{ label: 'Le Programme', to: '/presque/programme', icon: 'i-lucide-calendar-check-2' },
         { label: 'Nous aider', to: '/presque/nous-aider', icon: 'i-lucide-heart-handshake' },
         { label: 'Nous contacter', to: '/info', icon: 'i-lucide-info' },
     ]

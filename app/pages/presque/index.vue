@@ -1,33 +1,9 @@
 <script setup lang="ts">
-import * as v from 'valibot'
-import type { FormSubmitEvent } from '@nuxt/ui'
 
-const VENUE_NAME = 'Cité des étudiants Clos-Brochet 10'
+const VENUE_NAME = 'Cité des étudiants, Clos-Brochet 10'
 const VENUE_CITY = '2000 Neuchâtel'
 const COORDINATES = '2562125.81,1205165.67'
-const PROGRAMME_SUBJECT = 'Presque 24h du Jeu — inscription pour suivre le programme'
-const PROGRAMME_MESSAGE = 'Je souhaite être tenu·e au courant du programme des Presques 24h du Jeu (14–15 novembre 2026).'
 
-const emailSchema = v.object({
-  'sender_email': v.pipe(v.string(), v.email('Adresse email invalide')),
-})
-type EmailSchema = v.InferOutput<typeof emailSchema>
-
-const emailState = reactive({ 'sender_email': '' })
-
-const { status, error, showForm, submit } = useApiForm({
-  endpoint: '/forms/contact',
-  onSuccessToast: { title: 'Envoyé', description: 'Merci, on vous tiendra au courant !' },
-})
-
-async function onSubmit(event: FormSubmitEvent<EmailSchema>) {
-  event.preventDefault()
-  await submit({
-    subject: PROGRAMME_SUBJECT,
-    sender_email: event.data.sender_email,
-    message: PROGRAMME_MESSAGE,
-  })
-}
 
 const mapShown = ref(false)
 function toggleMap() {
@@ -44,13 +20,21 @@ function toggleMap() {
     <p class="text-xl text-neutral p-3 text-center">
       Presque 24h de jeux de sociétés et de rôles. Viendez tous et invitez vos ami.e.s. Si vous n'avez pas d'amis, rejoignez nous et vous devriez en avoir quelques uns d'ici à la fin de l'évènement.
     </p>
+    <!--
     <p class="text-xl text-neutral p-3 text-center">
-    Le programme est en cours d'élaboration et nous devrions vous le donner presque bientôt. Lorsqu'il sera là, vous pourrez voir les différentes activités et vous inscrire à l'avance.
+      Le programme est en ligne ! Vous pouvez voir les différentes activités et vous inscrire à l'avance.
     </p>
+
+    <UButton to="/presque/programme" icon="i-lucide-calendar-check-2" size="lg" class="mb-4">
+      Voir le programme et s'inscrire
+    </UButton>
     <p class="text-xl text-neutral p-3 text-center">
       Il y aura des jeux de société et des jeux de rôle, du jeu de carte et des jeux sociaux. Des gens qui vous expliquent des règles et des gens qui servent à manger et à boire.
     </p>
-
+    -->
+    <p class="text-xl text-neutral p-3 text-center">
+      Le programme arrive dans 2-3 jours.
+    </p>
     <img :src="resolveImage('presque/affiche_presque_no_sponsor.jpeg')" alt="" class="max-h-100 w-auto rounded my-4">
 
     <div class="grid md:grid-cols-2 gap-6 w-full mb-8">
@@ -95,30 +79,8 @@ function toggleMap() {
 
     <div class="w-full max-w-md">
       <h2 class="text-2xl font-bold text-primary mb-3 text-center">
-        Vous voulez Viendre ?
+        Vous voulez nous aider ? C'est gentil.
       </h2>
-      <p class="text-neutral text-center mb-4">
-        Le programme se précisera bientôt. Laissez votre email pour être prévenu·e dès sa publication.
-      </p>
-
-      <div v-if="status === 'error'" class="text-error text-sm mb-3 text-center">
-        {{ error }}
-      </div>
-
-      <UForm v-if="showForm" :schema="emailSchema" :state="emailState" class="space-y-4" @submit="onSubmit">
-        <UFormField label="Email" name="email">
-          <UInput v-model="emailState.sender_email" type="email" class="w-full" placeholder="vous@exemple.ch" />
-        </UFormField>
-
-        <UButton type="submit" :disabled="status === 'loading'" class="w-full justify-center">
-          {{ status === 'loading' ? 'Envoi en cours…' : 'Envoyer' }}
-        </UButton>
-      </UForm>
-
-      <div v-else class="text-center p-4 text-neutral">
-        Merci, on vous tiendra au courant !
-      </div>
-
       <UButton
         to="/presque/nous-aider"
         icon="i-lucide-heart-handshake"
@@ -126,7 +88,7 @@ function toggleMap() {
         variant="outline"
         class="mt-4 w-full justify-center"
       >
-        Envie de nous aider ? Devenez bénévole
+        Devenez bénévole
       </UButton>
     </div>
   </div>

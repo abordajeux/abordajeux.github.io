@@ -15,6 +15,35 @@
   --ui-warning: #e69908;
   --ui-error: #ff0000;
   --page-bg: #ecdac1;
+  --presque-gros-jeux: #998769;
+  --presque-jdr: #b0abab;
+  --presque-partenaires: #ffba4a;
+  --presque-tournois: #ac1631;
+  --presque-activites-association: #b28dbd;
+}
+
+.presque-tint-gros-jeux {
+  background-color: color-mix(in srgb, var(--presque-gros-jeux) 50%, transparent);
+}
+
+.presque-tint-jdr {
+  background-color: color-mix(in srgb, var(--presque-jdr) 50%, transparent);
+}
+
+.presque-tint-partenaires {
+  background-color: color-mix(in srgb, var(--presque-partenaires) 50%, transparent);
+}
+
+.presque-tint-tournois {
+  background-color: color-mix(in srgb, var(--presque-tournois) 50%, transparent);
+}
+
+.presque-tint-activites-association {
+  background-color: color-mix(in srgb, var(--presque-activites-association) 50%, transparent);
+}
+
+.presque-prize-popover {
+  background-color: var(--page-bg);
 }
 
 body {

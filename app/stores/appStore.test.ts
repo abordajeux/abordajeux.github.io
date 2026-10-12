@@ -10,24 +10,32 @@ describe('usePirateStore.changeProject (project.global.ts delegates to this)', (
     expect(store.currentProject).toBe('nifff')
   })
 
-  it('renders the static presque nav with the Nous aider entry', () => {
+  it('renders the static presque nav with the Programme and Nous aider entries', () => {
     const store = usePirateStore()
     store.changeProject('presque')
     expect(store.navigationButtons.map(item => item.label)).toEqual([
       'Accueil',
       'L\'Événement en Bref',
+      'Le Programme',
       'Nous aider',
       'Nous contacter',
     ])
     expect(store.currentProject).toBe('presque')
   })
 
+  it('renders the standard nav with the Presques 24h du Jeu entry', () => {
+    const store = usePirateStore()
+    store.changeProject('')
+    expect(store.navigationButtons.map(item => item.label)).toContain('Presques 24h du Jeu')
+    expect(store.navigationButtons.find(item => item.label === 'Presques 24h du Jeu')?.to).toBe('/presque')
+  })
+
   it.each([
-    ['', 6],
-    ['info', 6],
-    ['programme', 6],
-    ['events', 6],
-    ['galerie', 6],
+    ['', 7],
+    ['info', 7],
+    ['programme', 7],
+    ['events', 7],
+    ['galerie', 7],
   ])('falls back to standard nav for first path segment %r (%i items)', (segment, count) => {
     const store = usePirateStore()
     store.changeProject(segment)
@@ -41,6 +49,6 @@ describe('usePirateStore.changeProject (project.global.ts delegates to this)', (
     expect(store.currentProject).toBe('nifff')
     store.changeProject('info')
     expect(store.currentProject).toBeNull()
-    expect(store.navigationButtons).toHaveLength(6)
+    expect(store.navigationButtons).toHaveLength(7)
   })
 })
