@@ -20,7 +20,7 @@ function toggleMap() {
     <p class="text-xl text-neutral p-3 text-center">
       Presque 24h de jeux de sociétés et de rôles. Viendez tous et invitez vos ami.e.s. Si vous n'avez pas d'amis, rejoignez nous et vous devriez en avoir quelques uns d'ici à la fin de l'évènement.
     </p>
-    <!--
+
     <p class="text-xl text-neutral p-3 text-center">
       Le programme est en ligne ! Vous pouvez voir les différentes activités et vous inscrire à l'avance.
     </p>
@@ -31,10 +31,7 @@ function toggleMap() {
     <p class="text-xl text-neutral p-3 text-center">
       Il y aura des jeux de société et des jeux de rôle, du jeu de carte et des jeux sociaux. Des gens qui vous expliquent des règles et des gens qui servent à manger et à boire.
     </p>
-    -->
-    <p class="text-xl text-neutral p-3 text-center">
-      Le programme arrive dans 2-3 jours.
-    </p>
+
     <img :src="resolveImage('presque/affiche_presque_no_sponsor.jpeg')" alt="" class="max-h-100 w-auto rounded my-4">
 
     <div class="grid md:grid-cols-2 gap-6 w-full mb-8">
