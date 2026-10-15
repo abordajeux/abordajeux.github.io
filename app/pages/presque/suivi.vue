@@ -129,16 +129,16 @@ onUnmounted(() => {
           <p>Aucune activité à venir pour le moment.</p>
         </div>
 
-        <div v-else class="overflow-x-auto rounded-lg border border-default">
+        <div v-else class="max-h-[70vh] overflow-auto rounded-lg border border-default">
           <table class="w-full text-sm">
             <thead>
-              <tr class="bg-elevated/50 text-left text-muted">
-                <th class="px-3 py-2 font-semibold whitespace-nowrap">Horaire</th>
-                <th class="px-3 py-2 font-semibold">Activité</th>
-                <th class="px-3 py-2 font-semibold whitespace-nowrap">Places</th>
-                <th class="px-3 py-2 font-semibold text-right whitespace-nowrap">Confirmés</th>
-                <th class="px-3 py-2 font-semibold text-right whitespace-nowrap">En attente</th>
-                <th class="px-3 py-2 font-semibold text-right whitespace-nowrap">Liste d'attente</th>
+              <tr class="text-left text-muted">
+                <th class="sticky top-0 z-10 bg-elevated px-3 py-2 font-semibold whitespace-nowrap">Horaire</th>
+                <th class="sticky top-0 z-10 bg-elevated px-3 py-2 font-semibold">Activité</th>
+                <th class="sticky top-0 z-10 bg-elevated px-3 py-2 font-semibold whitespace-nowrap">Places</th>
+                <th class="sticky top-0 z-10 bg-elevated px-3 py-2 font-semibold text-right whitespace-nowrap">Confirmés</th>
+                <th class="sticky top-0 z-10 bg-elevated px-3 py-2 font-semibold text-right whitespace-nowrap">Non Confirmés</th>
+                <th class="sticky top-0 z-10 bg-elevated px-3 py-2 font-semibold text-right whitespace-nowrap">Liste d'attente</th>
               </tr>
             </thead>
             <tbody>

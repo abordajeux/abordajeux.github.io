@@ -235,7 +235,12 @@ async function onSubmit() {
               {{ pendingLine }}
             </div>
 
-            <UFormField label="Email de contact" hint="Un seul email pour tout le groupe" :error="formErrors.contact_email ?? undefined">
+            <UFormField
+              label="Email de contact"
+              hint="Un seul email pour tout le groupe"
+              help="Le lien de confirmation sera envoyé à cette adresse email."
+              :error="formErrors.contact_email ?? undefined"
+            >
               <UInput v-model="email" type="email" placeholder="vous@exemple.ch" class="w-full" />
             </UFormField>
 
