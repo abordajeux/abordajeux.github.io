@@ -22,7 +22,7 @@ function toggleMap() {
     </p>
 
     <p class="text-xl text-neutral p-3 text-center">
-      Le programme est en ligne ! Vous pouvez voir les différentes activités et vous inscrire à l'avance.
+      Le programme est en ligne ! Vous pouvez voir les différentes activités et vous inscrire à l'avance. Il sera possible de s'inscrire sur place le jour même, à condition que toutes les places ne soient pas prises.
     </p>
 
     <UButton to="/presque/programme" icon="i-lucide-calendar-check-2" size="lg" class="mb-4">
