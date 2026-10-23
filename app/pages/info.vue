@@ -227,6 +227,17 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       Nous rejoindre ou nous contacter
     </div>
 
+<div class="p-3">
+      Si vous souhaitez nous contacter, et que le formulaire n'est pas pratique (parce que, par exemple, vous avez besoin de nous fournir une pièce jointe, ou que vous aimeriez avoir une mise en page), vous pouvez nous envoyer un Mail.
+    </div>
+    <div class="flex justify-center">
+      <UButton
+        to="mailto:association.alabordajeux@gmail.com"
+          icon="i-lucide-mail"
+          target="_blank"
+          variant="ghost">Mail
+      </UButton>
+    </div>
     <UTheme
     :ui="{
       formField: {

@@ -28,6 +28,9 @@ function toggleMap() {
     <UButton to="/presque/programme" icon="i-lucide-calendar-check-2" size="lg" class="mb-4">
       Voir le programme et s'inscrire
     </UButton>
+    <UButton to="/presque/nous-aider" icon="i-lucide-heart-handshake" size="lg" class="mb-4">
+      Devenir Bénévole
+    </UButton>
     <p class="text-xl text-neutral p-3 text-center">
       Il y aura des jeux de société et des jeux de rôle, du jeu de carte et des jeux sociaux. Des gens qui vous expliquent des règles et des gens qui servent à manger et à boire.
     </p>
