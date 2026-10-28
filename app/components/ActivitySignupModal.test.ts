@@ -92,6 +92,17 @@ describe('ActivitySignupModal — detail step', () => {
     expect(copyrightLink?.getAttribute('href')).toBe('https://jongriffon.carrd.co/#tosfr')
   })
 
+  it('shows an extra S\'inscrire button next to the badge that opens the form', async () => {
+    const wrapper = mountModal({ activity, capacity: openCapacity })
+    await wrapper.vm.$nextTick()
+    const signupButtons = Array.from(document.body.querySelectorAll('button'))
+      .filter(button => button.textContent?.includes('S\'inscrire'))
+    expect(signupButtons).toHaveLength(2)
+    signupButtons[0]!.click()
+    await wrapper.vm.$nextTick()
+    expect(document.body.querySelector('input[type="email"]')).not.toBeNull()
+  })
+
   it('shows no subscription CTA at all for a non-subscribable activity', async () => {
     const wrapper = mountModal({
       activity,

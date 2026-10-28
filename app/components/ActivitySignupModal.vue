@@ -159,6 +159,14 @@ async function onSubmit() {
             <UBadge :color="badge.color" variant="solid">
               {{ badge.label }}
             </UBadge>
+            <UButton
+              v-if="props.capacity && mode !== 'none'"
+              icon="i-lucide-notebook-pen"
+              size="sm"
+              @click="openForm"
+            >
+              S'inscrire
+            </UButton>
             <PrizePopover
               v-if="props.activity.prizes"
               :prizes="props.activity.prizes"
