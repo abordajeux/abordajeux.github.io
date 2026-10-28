@@ -22,6 +22,7 @@ export type baseEvent = {
     image_copyright?:[string, string], // label, link
     games?: [],
     external_link?: string[]
+    signup_form?: boolean,
     organizer?:string,
     isPublic: boolean,
     prices: Record<string, number>

@@ -1,24 +1,25 @@
 import { mapApiFormError } from '~/utils/apiFormClient'
+import type { ApiFetch } from './useApiFetch'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
 export function useApiForm(options: {
   endpoint: string
   onSuccessToast?: { title: string, description?: string }
+  fetcher?: ApiFetch
 }) {
   const status = ref<FormStatus>('idle')
   const error = ref<string | null>(null)
   const showForm = ref(true)
   const toast = useToast()
-  const config = useRuntimeConfig()
+  const api = options.fetcher ?? useApiFetch()
 
   async function submit(data: Record<string, unknown>) {
     status.value = 'loading'
     error.value = null
     try {
-      await $fetch(options.endpoint, {
+      await api(options.endpoint, {
         method: 'POST',
-        baseURL: config.public.apiBase,
         body: data,
       })
     } catch (err: unknown) {
@@ -33,5 +34,11 @@ export function useApiForm(options: {
     showForm.value = false
   }
 
-  return { status, error, showForm, submit }
+  function reset() {
+    status.value = 'idle'
+    error.value = null
+    showForm.value = true
+  }
+
+  return { status, error, showForm, submit, reset }
 }

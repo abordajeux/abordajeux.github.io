@@ -67,7 +67,7 @@ const selectedCapacity = computed(() => {
       <UPageHeader
         headline="Les Presques 24h du Jeu — 14 et 15 novembre 2026"
         title="Le Programme"
-        description="Cliquez sur une activité pour voir les détails et vous inscrire."
+        description="Cliquez sur une activité pour voir les détails et vous inscrire. N'hésitez pas à regarder vos spams si vous ne recevez pas le mail de confirmation."
       />
 
       <div v-if="programmeStatus === 'loading' || programmeStatus === 'idle'" class="flex flex-col items-center gap-3 p-6 text-neutral">

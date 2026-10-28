@@ -32,6 +32,7 @@ const recurringSchema = v.object({
   pre_img_description: stringList,
   post_img_description: stringList,
   external_link: stringList,
+  signup_form: v.optional(v.boolean()),
   organizer: v.optional(v.string()),
   prices: v.record(v.string(), v.number()),
 })
@@ -51,6 +52,7 @@ const oneOffSchema = v.object({
   pre_img_description: stringList,
   post_img_description: stringList,
   external_link: stringList,
+  signup_form: v.optional(v.boolean()),
   organizer: v.optional(v.string()),
   prices: v.optional(v.record(v.string(), v.number())),
 })
@@ -74,6 +76,10 @@ export function parseRrule(rrule: string): RRule {
 
 export function toDateKey(date: Date): string {
   return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}-${String(date.getUTCDate()).padStart(2, '0')}`
+}
+
+export function formatFrenchDate(date: Date): string {
+  return new Intl.DateTimeFormat('fr-FR', { timeZone: 'UTC', dateStyle: 'long' }).format(date)
 }
 
 export function parseDateKey(key: string): Date {

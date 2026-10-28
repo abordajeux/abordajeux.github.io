@@ -13,6 +13,7 @@ const emit = defineEmits<{
 
 const badge = computed(() => getCapacityBadge(props.capacity))
 const tintClass = computed(() => activityTintClass(props.activity))
+const subscribable = computed(() => props.capacity !== undefined && props.capacity.max > 0)
 </script>
 
 <template>
@@ -44,6 +45,14 @@ const tintClass = computed(() => activityTintClass(props.activity))
           <UBadge :color="badge.color" variant="solid">
             {{ badge.label }}
           </UBadge>
+          <UButton
+            v-if="subscribable"
+            icon="i-lucide-notebook-pen"
+            size="xs"
+            @click.stop="emit('select', props.activity)"
+          >
+            S'inscrire
+          </UButton>
           <PrizePopover
             v-if="props.activity.prizes"
             :prizes="props.activity.prizes"

@@ -7,6 +7,7 @@ import {
   type ParsedRecurring,
   type RecurringEvent,
   categorize,
+  formatFrenchDate,
   getEventsByDate,
   loadEvents,
   mergeEvents,
@@ -46,6 +47,10 @@ describe('date keys (UTC calendar date — stable regardless of the instant time
 
   it('round-trips parseDateKey -> toDateKey', () => {
     expect(toDateKey(parseDateKey('2026-07-15'))).toBe('2026-07-15')
+  })
+
+  it('formats a UTC calendar date as a long French date', () => {
+    expect(formatFrenchDate(new Date('2026-11-11T23:30:00Z'))).toBe('11 novembre 2026')
   })
 })
 
@@ -159,6 +164,7 @@ describe('loadEvents (production data)', () => {
     expect(categorize(jul14)).toBe('cancelled')
     const jul15 = events.find(e => toDateKey(e.date) === '2026-07-15')!
     expect(jul15.title).toBe('Soirée jeux du Mercredi')
+    expect(jul15.signup_form).toBe(true)
     expect(categorize(jul15)).toBe('local-open')
   })
 
@@ -198,6 +204,13 @@ describe('tryParseRecurringEvent (graceful fallback for bad data)', () => {
     expect(event).not.toBeNull()
     expect(event!.id).toBe('test-id')
     expect(event!.repetitionRule).toBeInstanceOf(RRule)
+  })
+
+  it('reads signup_form as an optional flag (undefined when absent)', () => {
+    const withForm = tryParseRecurringEvent(validRaw({ signup_form: true }))
+    expect(withForm?.signup_form).toBe(true)
+    const withoutForm = tryParseRecurringEvent(validRaw())
+    expect(withoutForm?.signup_form).toBeUndefined()
   })
 
   it('returns null + fires onWarning when the rrule is malformed', () => {
@@ -253,6 +266,13 @@ describe('tryParseOneOffEvent (graceful fallback for bad data)', () => {
     const event = tryParseOneOffEvent(validRaw())
     expect(event).not.toBeNull()
     expect(event!.id).toBe('test-id')
+  })
+
+  it('reads signup_form as an optional flag (undefined when absent)', () => {
+    const withForm = tryParseOneOffEvent(validRaw({ signup_form: true }))
+    expect(withForm?.signup_form).toBe(true)
+    const withoutForm = tryParseOneOffEvent(validRaw())
+    expect(withoutForm?.signup_form).toBeUndefined()
   })
 
   it('returns null + fires onWarning when required fields are missing', () => {

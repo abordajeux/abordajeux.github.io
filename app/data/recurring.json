@@ -12,7 +12,7 @@
       "pre_img_description": [
         "Chaque mercredi, l'abordajeux vous embarque dans plusieurs tables de jeux. Nos membres peuvent s'inscrire à n'importe quelle table, et nos visiteurs peuvent découvrir tout ça à travers nos tables libres."
       ],
-      "external_link": ["/info#contact", "S'inscrire", "i-lucide-notebook-pen", ""],
+      "signup_form": true,
       "prices": {
         "Non-membres, première visite": 0,
         "Non-membres, visites ultérieures": 20,
@@ -120,6 +120,7 @@
       "post_img_description": [
 "Si les jeux proposés sont un peu plus complexes, nos tables libres restent ouvertes à n'importe quel jeu.", "Promis, on vous regardera même pas de travers."
 ],
+      "signup_form": true,
       "prices": {
         "Non-membres, première visite": 0,
         "Non-membres, visites ultérieures": 20,
@@ -142,6 +143,7 @@
       "post_img_description": [
         "Plus d'informations sur l'organisateur et sa thématique lorsque nous aurons les détails."
       ],
+      "signup_form": true,
       "prices": {
         "Êtres vivants": 0,
         "Les autres": 0

@@ -38,6 +38,7 @@ describe('ActivityCard', () => {
     expect(wrapper.text()).toContain('Carcassonne')
     expect(wrapper.text()).toContain('de 14:00 à 18:00')
     expect(wrapper.text()).toContain('7 places sur 8')
+    expect(wrapper.text()).toContain('S\'inscrire')
     expect(wrapper.text()).toContain('Association Duchamp')
     expect(wrapper.classes()).toContain('presque-tint-tournois')
   })
@@ -55,6 +56,7 @@ describe('ActivityCard', () => {
       props: { activity: buildActivity(), capacity: undefined },
     })
     expect(wrapper.text()).toContain('Places : ?')
+    expect(wrapper.text()).not.toContain('S\'inscrire')
   })
 
   it('shows the Sans inscription badge for a non-subscribable activity', () => {
@@ -65,6 +67,7 @@ describe('ActivityCard', () => {
       },
     })
     expect(wrapper.text()).toContain('Sans inscription')
+    expect(wrapper.text()).not.toContain('S\'inscrire')
   })
 
   it('shows the trophy button only when the activity has prizes', () => {
@@ -88,6 +91,17 @@ describe('ActivityCard', () => {
       props: { activity, capacity: { max: 8, confirmed: 0, pending: 0, waitlisted: 0 } },
     })
     await wrapper.trigger('click')
+    expect(wrapper.emitted('select')).toEqual([[activity]])
+  })
+
+  it('emits select once when the signup button is clicked', async () => {
+    const activity = buildActivity()
+    const wrapper = mount(ActivityCard, {
+      props: { activity, capacity: { max: 8, confirmed: 0, pending: 0, waitlisted: 0 } },
+    })
+    const button = wrapper.findAll('button').find(b => b.text().includes('S\'inscrire'))
+    expect(button).toBeDefined()
+    await button!.trigger('click')
     expect(wrapper.emitted('select')).toEqual([[activity]])
   })
 })

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CalendarEvent } from '~/utils/eventsLoader'
+import { formatFrenchDate, type CalendarEvent } from '~/utils/eventsLoader'
 
 // TODO : rework external_link quickly to have an object structure rather than an array
 
@@ -9,18 +9,21 @@ const { activities } = defineProps<{
 
 const currentIndex = ref(0)
 const mapShown = ref(false)
+const signupOpen = ref(false)
 
 const current = computed(() => activities[currentIndex.value]!)
 
 watch(() => activities, () => {
   currentIndex.value = 0
   mapShown.value = false
+  signupOpen.value = false
 })
 
 function goToPrevious() {
   if (currentIndex.value > 0) {
     currentIndex.value -= 1
     mapShown.value = false
+    signupOpen.value = false
   }
 }
 
@@ -28,11 +31,12 @@ function goToNext() {
   if (currentIndex.value < activities.length - 1) {
     currentIndex.value += 1
     mapShown.value = false
+    signupOpen.value = false
   }
 }
 
-function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat('fr-FR', { timeZone: 'UTC', dateStyle: 'long' }).format(date)
+function openSignup() {
+  signupOpen.value = true
 }
 
 function toggleMap() {
@@ -43,7 +47,7 @@ function toggleMap() {
 <template>
   <USlideover
     :title="current.title"
-    :description="formatDate(current.date)"
+    :description="formatFrenchDate(current.date)"
     :close="{
       color: 'primary',
       variant: 'outline',
@@ -108,6 +112,13 @@ function toggleMap() {
           :target="current.external_link[3]"
         >{{ current.external_link[1] }}</UButton>
 
+        <UButton
+          v-if="!current.cancelled && current.signup_form"
+          class="mt-2"
+          icon="i-lucide-notebook-pen"
+          @click="openSignup"
+        >S'inscrire</UButton>
+
         <div v-if="current.location">
           <div>
             <UButton icon="i-lucide-map-pin-house" color="secondary" class="mt-2 mb-2" @click="toggleMap">{{ mapShown ? "Masquer la carte" : current.location }}</UButton>
@@ -116,6 +127,8 @@ function toggleMap() {
             <iframe :src="`https://map.geo.admin.ch/#/embed?lang=en&center=${current.coordinates}&z=10&topic=ech&layers=&bgLayer=ch.swisstopo.pixelkarte-grau&hideEmbedUI&crosshair=cross`" style="border: 0;width: 100%;height: 300px;max-width: 100%;max-height: 100%;" allow="geolocation" />
           </div>
         </div>
+
+        <EventSignupModal v-model:open="signupOpen" :event="current" />
       </div>
     </template>
   </USlideover>
