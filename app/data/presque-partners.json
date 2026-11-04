@@ -7,6 +7,10 @@
     {
       "name": "Pourcent Culturel Migros",
       "logo": "presque/logos/sponsor_mig_culture.png"
+    },
+    {
+      "name": "Casino de Neuchâtel",
+      "logo": "presque/logos/sponsor_casino.png"
     }
   ],
   "partners": [
@@ -56,6 +60,12 @@
       "name": "Le grain d'orge",
       "logo": "presque/logos/partenaire_grain_orge.jpg",
       "description": "Grâce au grain d'orge, nous pouvons vous proposer un peu de bière pendant l'événement.",
+      "website": "https://www.augraindorgeneuchatel.ch/"
+    },
+    {
+      "name": "L'imprimeur",
+      "logo": "presque/logos/partenaire_imprimeur.jpg",
+      "description": "Vous avez idée de la quantité de travail que ça représente d'imprimer tout ce qu'il faut pour la communication ? Moi non plus. Mais notre responsable communication et eux, oui.",
       "website": "https://www.augraindorgeneuchatel.ch/"
     }
   ]
