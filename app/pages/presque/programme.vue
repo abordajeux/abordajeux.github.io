@@ -98,7 +98,7 @@ const selectedCapacity = computed(() => {
           color="warning"
           variant="subtle"
           title="Version en cache"
-          description="Le programme n'a pas pu être rechargé : la dernière version connue est affichée, elle date peut-être."
+          description="Le programme n'a pas pu être rechargé : la dernière version connue est affichée, elle date peut-être. Les inscriptions sont désactivées pendant ce temps."
         />
 
         <UTabs v-model="activeCategory" :items="tabItems" :default-value="'jdr'">

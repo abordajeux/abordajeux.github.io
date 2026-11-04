@@ -1,0 +1,81 @@
+[
+  {
+    "title": "À manger",
+    "icon": "i-lucide-utensils",
+    "items": [
+      {
+        "name": "Ramen Vegan",
+        "description": "Bouillon Vegan, Tofu Mariné, Nouilles, Champignons, Carottes, Maïs, Oignons nouveaux",
+        "price": 10
+      },
+      {
+        "name": "Ramen",
+        "description":"Bouillon Porc-Poulet, Poitrine de Porc marinée, Nouilles, Champignons, Oeuf, Carottes, Maïs, Oignons Nouveaux, Narutomaki",
+        "price": 10
+      },
+      {
+        "name": "Croque Monsieur Vegetarien",
+        "description": "Aubergines, Pesto Rouge et Mozarella",
+        "price": 5
+      },
+      {
+        "name": "Croque Monsieur Hallal",
+        "description": "Jambon de dinde Hallal, beurre moutarde, gruyère, avec ou sans cornichons",
+        "price": 5
+      },
+      {
+        "name": "Galette de Sarrasin Tomate-Champignon",
+        "description":"sauce tomate aux herbes, champignons",
+        "price": 5
+      },
+      {
+        "name": "Galette de Sarrasin Jambon-Gruyère",
+        "description":"jambon de dinde Hallal, gruyère",
+        "price": 5
+      },
+      {
+        "name": "Crêpe Caotina",
+        "description": "Avec une bonne grosse dose de pâte à tartiner Caotina",
+        "price": 5
+      },
+      {
+        "name": "Crêpe Caramel beurre salé",
+        "description": "Y-a-t-il vraiment besoin d'une description ?",
+        "price": 5
+      },
+      {
+        "name": "Crêpe au sucre",
+        "description":"Une crêpe, du sucre... des questions ?",
+        "price": 4
+      },
+      {
+        "name": "Pâtisseries Maison",
+        "description": "Je n'ai aucun contrôle sur ce que les membres amènent.",
+        "price": -1
+      }
+    ]
+  },
+  {
+    "title": "À boire",
+    "icon": "i-lucide-cup-soda",
+    "items": [
+      {
+        "name": "Café",
+        "price": 2.5
+      },
+      {
+        "name": "Thé",
+        "description": "",
+        "price": 2
+      },
+      {
+        "name": "Softs (5dl)/ Maté (~3dl)",
+        "price": 3
+      },
+      {
+        "name": "Bière BLZ blonde 3dl",
+        "price": 4
+      }
+    ]
+  }
+]
