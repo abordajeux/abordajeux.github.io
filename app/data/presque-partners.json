@@ -1,0 +1,62 @@
+{
+  "sponsors": [
+    {
+      "name": "Ville de Neuchâtel",
+      "logo": "presque/logos/sponsor_ville_neuchatel.jpg"
+    },
+    {
+      "name": "Pourcent Culturel Migros",
+      "logo": "presque/logos/sponsor_mig_culture.png"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Le Garage",
+      "logo": "presque/logos/partenaire_garage.jpg",
+      "description": "L'association de wargame Neuchâteloise, qui vient vous proposer des initiations. N'hésitez pas à les rejoindre si celà vous intéresse.",
+      "website": "https://garage-wargame.ch/"
+    },
+    {
+      "name": "MTG Neuch'",
+      "logo": "presque/logos/partenaire_mtg_neuch.jpg",
+      "description": "L'association des joueureuses de Magic the Gathering de la région neuchâteloise. Si vous cherchez des partenaires de jeux, ou des formats un peu fun, n'hésitez pas à aller à leur rencontre.",
+      "website": "https://perdu.com"
+    },
+    {
+      "name": "Le Haricot Magique",
+      "logo": "presque/logos/partenaire_haricot_magique.jpg",
+      "description": "Une charmante librairie de Colombier qui propose une sélection de jeux de sociétés et de jouets. Elle sera présente avec un petit stand lors du festival",
+      "website": "https://leharicotmagique.ch/"
+    },
+    {
+      "name": "Au Moka",
+      "logo": "presque/logos/partenaire_moka.jpg",
+      "description": "Devinez chez qui nous avons pris notre café :).",
+      "website": "https://aumoka.ch/fr/"
+    },
+    {
+      "name": "Boucherie Sidcarna",
+      "logo": "presque/logos/partenaire_sidcarna.png",
+      "description": "La poitrine de porc des ramens vient de cette sympathique boucherie.",
+      "website": "https://boucheriesidcarna.ch/"
+    },
+    {
+      "name": "Boucherie Istanbul",
+      "logo": "presque/logos/partenaire_istanbul.png",
+      "description": "Nous somme allés prendre notre jambon Hallal chez eux.",
+      "website": "https://boucherie-istanbul.ch/"
+    },
+    {
+      "name": "Le Mogu",
+      "logo": "presque/logos/partenaire_mogu.jpg",
+      "description": "La boutique de spécialités japonaise nous fournit beaucoup d'ingrédients pour les bols de ramen.",
+      "website": "https://mogumart.ch/"
+    },
+    {
+      "name": "Le grain d'orge",
+      "logo": "presque/logos/partenaire_grain_orge.jpg",
+      "description": "Grâce au grain d'orge, nous pouvons vous proposer un peu de bière pendant l'événement.",
+      "website": "https://www.augraindorgeneuchatel.ch/"
+    }
+  ]
+}
