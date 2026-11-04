@@ -47,13 +47,13 @@
     {
       "name": "Boucherie Istanbul",
       "logo": "presque/logos/partenaire_istanbul.png",
-      "description": "Nous somme allés prendre notre jambon Hallal chez eux.",
+      "description": "Nous somme allés prendre notre jambon de dinde Hallal chez eux.",
       "website": "https://boucherie-istanbul.ch/"
     },
     {
       "name": "Le Mogu",
       "logo": "presque/logos/partenaire_mogu.jpg",
-      "description": "La boutique de spécialités japonaise nous fournit beaucoup d'ingrédients pour les bols de ramen.",
+      "description": "La boutique de spécialités japonaises nous fournit beaucoup d'ingrédients pour les bols de ramen.",
       "website": "https://mogumart.ch/"
     },
     {
@@ -63,10 +63,10 @@
       "website": "https://www.augraindorgeneuchatel.ch/"
     },
     {
-      "name": "L'imprimeur",
-      "logo": "presque/logos/partenaire_imprimeur.jpg",
+      "name": "Digiprint",
+      "logo": "presque/logos/partenaire_digiprint.png",
       "description": "Vous avez idée de la quantité de travail que ça représente d'imprimer tout ce qu'il faut pour la communication ? Moi non plus. Mais notre responsable communication et eux, oui.",
-      "website": "https://www.augraindorgeneuchatel.ch/"
+      "website": "https://www.digiprint-ne.ch/"
     }
   ]
 }
