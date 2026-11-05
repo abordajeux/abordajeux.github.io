@@ -21,6 +21,7 @@ export const usePirateStore = defineStore('application', () => {
         { label: 'Le Programme', to: '/presque/programme', icon: 'i-lucide-calendar-check-2' },
         { label: 'Nous aider', to: '/presque/nous-aider', icon: 'i-lucide-heart-handshake' },
         { label: 'Se Restaurer', to:'/presque/menu', icon: 'i-lucide-utensils-crossed'},
+        { label: 'Nos Partenaires', to:'/presque/partenaires', icon: 'i-lucide-hand-heart'},
         { label: 'Nous contacter', to: '/info', icon: 'i-lucide-info' },
     ]
 
