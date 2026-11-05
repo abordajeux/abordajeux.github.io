@@ -11,6 +11,7 @@ export interface PresquePartner {
   logo: string
   description: string
   website: string
+  whatsapp?: string
 }
 
 export interface PresquePartners {
@@ -28,6 +29,7 @@ const partnerSchema = v.object({
   logo: v.string(),
   description: v.string(),
   website: v.pipe(v.string(), v.url()),
+  whatsapp: v.optional(v.pipe(v.string(), v.url())),
 })
 
 const partnersFileSchema = v.object({

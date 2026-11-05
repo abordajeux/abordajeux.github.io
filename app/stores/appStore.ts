@@ -20,6 +20,7 @@ export const usePirateStore = defineStore('application', () => {
         { label: 'L\'Événement en Bref', to: '/presque', icon: 'i-lucide-presentation' },
         { label: 'Le Programme', to: '/presque/programme', icon: 'i-lucide-calendar-check-2' },
         { label: 'Nous aider', to: '/presque/nous-aider', icon: 'i-lucide-heart-handshake' },
+        { label: 'Se Restaurer', to:'/presque/menu', icon: 'i-lucide-utensils-crossed'},
         { label: 'Nous contacter', to: '/info', icon: 'i-lucide-info' },
     ]
 

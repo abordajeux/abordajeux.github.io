@@ -54,7 +54,19 @@ function partnerLogo(partner: PresquePartner) {
                 >
                 <span v-else class="text-sm text-neutral">{{ partner.name }}</span>
               </a>
-              <div class="text-lg font-semibold">{{ partner.name }}</div>
+              <div class="flex items-center gap-2">
+                <span class="text-lg font-semibold">{{ partner.name }}</span>
+                <a
+                  v-if="partner.whatsapp"
+                  :href="partner.whatsapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-success hover:text-primary transition"
+                  :aria-label="`Rejoindre le groupe WhatsApp de ${partner.name}`"
+                >
+                  <UIcon name="i-simple-icons-whatsapp" class="text-xl" />
+                </a>
+              </div>
               <p class="text-sm text-neutral">{{ partner.description }}</p>
             </div>
           </div>

@@ -24,6 +24,35 @@ describe('parsePresquePartners', () => {
     expect(parsed.partners).toHaveLength(0)
   })
 
+  it('parses an optional whatsapp group link', () => {
+    const parsed = parsePresquePartners({
+      sponsors: [],
+      partners: [{
+        name: 'X',
+        logo: 'x.svg',
+        description: 'texte',
+        website: 'https://www.exemple.ch',
+        whatsapp: 'https://chat.whatsapp.com/abc123',
+      }],
+    })
+    expect(parsed.partners[0]!.whatsapp).toBe('https://chat.whatsapp.com/abc123')
+  })
+
+  it('keeps whatsapp undefined when absent', () => {
+    const parsed = parsePresquePartners({
+      sponsors: [],
+      partners: [{ name: 'X', logo: 'x.svg', description: 'texte', website: 'https://www.exemple.ch' }],
+    })
+    expect(parsed.partners[0]!.whatsapp).toBeUndefined()
+  })
+
+  it('rejects a whatsapp link without a full URL', () => {
+    expect(() => parsePresquePartners({
+      sponsors: [],
+      partners: [{ name: 'X', logo: 'x.svg', description: 'texte', website: 'https://www.exemple.ch', whatsapp: 'chat.whatsapp.com/abc' }],
+    })).toThrow()
+  })
+
   it('rejects a partner website without a full URL', () => {
     expect(() => parsePresquePartners({
       sponsors: [],
@@ -55,6 +84,9 @@ describe('real fixtures', () => {
       expect(partner.logo.length).toBeGreaterThan(0)
       expect(partner.description.length).toBeGreaterThan(0)
       expect(partner.website.startsWith('https://')).toBe(true)
+      if (partner.whatsapp) {
+        expect(partner.whatsapp.startsWith('https://chat.whatsapp.com/')).toBe(true)
+      }
     }
   })
 })

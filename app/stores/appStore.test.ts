@@ -18,6 +18,7 @@ describe('usePirateStore.changeProject (project.global.ts delegates to this)', (
       'L\'Événement en Bref',
       'Le Programme',
       'Nous aider',
+      'Se Restaurer',
       'Nous contacter',
     ])
     expect(store.currentProject).toBe('presque')
