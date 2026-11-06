@@ -36,7 +36,7 @@ const entries = computed(() => {
         </p>
         <div v-else class="flex flex-col gap-1">
           <div v-for="[rank, prize] in entries" :key="rank">
-            <span class="font-semibold">{{ rank }}</span> — {{ prize }}
+            <span class="font-semibold">{{ rank }}</span> {{ prize === '' ? '': `— ${prize}` }}
           </div>
         </div>
       </div>
