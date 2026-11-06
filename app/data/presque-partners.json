@@ -68,6 +68,12 @@
       "logo": "presque/logos/partenaire_digiprint.png",
       "description": "Vous avez idée de la quantité de travail que ça représente d'imprimer tout ce qu'il faut pour la communication ? Moi non plus. Mais notre responsable communication et eux, oui.",
       "website": "https://www.digiprint-ne.ch/"
+    },
+    {
+      "name": "Ludesco",
+      "logo": "presque/logos/partenaire_ludesco",
+      "description": "Nous doutons très fortement que nous soyons ceux qui vous apprennent l'existence de Ludesco. Ils nous louent une partie de leur collection de jeux pour l'événement, et nous les remercions pour cela",
+      "website": "https://ludesco.ch"
     }
   ]
 }
